@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3so5vuttgqjn"]
+[gd_scene load_steps=4 format=3 uid="uid://b3so5vuttgqjn"]
 
 [ext_resource type="Texture2D" uid="uid://du8oii2i614ba" path="res://Decals/icon.svg" id="1_4f325"]
+[ext_resource type="Script" path="res://Test items/spritetest.gd" id="1_jj7q0"]
 
 [sub_resource type="GDScript" id="GDScript_pc2gy"]
 script/source = "extends Sprite2D
@@ -17,9 +18,9 @@ func _process(delta):
 "
 
 [node name="Sprite2D" type="Sprite2D"]
+script = ExtResource("1_jj7q0")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(512, 228)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_4f325")
 script = SubResource("GDScript_pc2gy")
