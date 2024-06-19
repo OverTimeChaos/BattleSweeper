@@ -11,6 +11,16 @@ config_version=5
 [application]
 
 config/name="Battlesweeper"
+<<<<<<< Updated upstream
 run/main_scene="res://Main screen.tscn"
+=======
+run/main_scene="res://Main.tscn"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Decals/icon.svg"
+config/icon="res://Decals/UnderComplicated.png"
+
+[display]
+
+window/size/viewport_width=667
+window/size/viewport_height=752
+window/stretch/mode="viewport"
