@@ -10,14 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Battlesweeper"
-<<<<<<< Updated upstream
-run/main_scene="res://Main screen.tscn"
-=======
-run/main_scene="res://Main.tscn"
->>>>>>> Stashed changes
+config/name="BatteSweeper"
+run/main_scene="res://Codes and Screens/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Decals/UnderComplicated.png"
+config/icon="res://Decals/Screenshot 2024-06-19 113946.png"
 
 [display]
 
