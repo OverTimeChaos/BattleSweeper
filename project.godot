@@ -13,7 +13,7 @@ config_version=5
 config/name="BatteSweeper"
 run/main_scene="res://Codes and Screens/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Decals/Screenshot 2024-06-19 113946.png"
+config/icon="res://Decals/Icon.svg"
 
 [display]
 
