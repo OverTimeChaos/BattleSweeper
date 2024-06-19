@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ccvuhvxgyotno"]
+
+[ext_resource type="FontFile" uid="uid://thvtcbddu4jp" path="res://Assets/Font/Fragile Bombers/Fragile Bombers.otf" id="1_jqa5v"]
+
+[resource]
+default_font = ExtResource("1_jqa5v")

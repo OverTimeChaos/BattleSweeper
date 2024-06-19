@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://di3pig8l6v8qo"]
+
+[ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="1_gsiny"]
+[ext_resource type="Script" path="res://Codes and Screens/HUD.gd" id="1_y0trb"]
+[ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_vg1jm"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_y0trb")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -26.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gsiny")
+theme_override_font_sizes/font_size = 81
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 120.0
+offset_right = 80.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gsiny")
+theme_override_font_sizes/font_size = 81
+text = "Quit"
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.0
+offset_top = 132.0
+offset_right = 301.0
+offset_bottom = 246.0
+grow_horizontal = 2
+theme = ExtResource("2_vg1jm")
+theme_override_font_sizes/font_size = 111
+text = "BattleSweeper"
+
+[node name="ColorRect" type="ColorRect" parent="Title"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = -6.5
+offset_right = 593.5
+offset_bottom = 400.0
+scale = Vector2(1.02578, 0.238582)
+color = Color(0.326302, 0.533164, 0.690312, 1)
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
