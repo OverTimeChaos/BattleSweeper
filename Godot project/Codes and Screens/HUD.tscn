@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct1lmlnctjkpj"]
+
+[ext_resource type="Script" path="res://Codes and Screens/HUD.gd" id="1_l7sqv"]
+[ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_xgvwk"]
+[ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="3_lj281"]
+[ext_resource type="Texture2D" uid="uid://dhi2da2kni5p6" path="res://Decals/Icon.svg" id="4_0ot8p"]
+[ext_resource type="Texture2D" uid="uid://dqa14wb3nyq05" path="res://Decals/Mine.svg" id="5_rqpb5"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_l7sqv")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 41.0
+offset_right = 61.5
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_lj281")
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 171.5
+offset_right = 48.0
+offset_bottom = 252.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_lj281")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.5
+offset_top = -137.0
+offset_right = 260.5
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xgvwk")
+theme_override_colors/font_color = Color(0.786827, 0.518406, 0.40081, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "BattleSweeper"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(253, 149)
+texture = ExtResource("4_0ot8p")
+
+[node name="Mine" type="Sprite2D" parent="."]
+position = Vector2(451, 115)
+scale = Vector2(0.600001, 0.600001)
+texture = ExtResource("5_rqpb5")
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

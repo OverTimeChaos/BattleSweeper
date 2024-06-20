@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3nx2x7udpc0x"]
+
+[ext_resource type="Script" path="res://Codes and Screens/Main.gd" id="1_wy2sd"]
+[ext_resource type="PackedScene" uid="uid://ct1lmlnctjkpj" path="res://Codes and Screens/HUD.tscn" id="2_ytdqf"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_wy2sd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.688787, 0.942557, 0.863869, 1)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_ytdqf")]

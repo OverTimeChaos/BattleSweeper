@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cgxqnpg5ax2u6"]
+
+[ext_resource type="FontFile" uid="uid://dc5fafqyve8r7" path="res://Assets/Font/gunmetal/gunmetl.ttf" id="1_kcjis"]
+
+[resource]
+default_font = ExtResource("1_kcjis")
