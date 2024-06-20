@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://vnsu53i0sb36"]
+
+[node name="MainGame" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 215.0
+offset_right = 76.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.755, 0.675)
+size_flags_horizontal = 4
+color = Color(0.211765, 0.239216, 0.290196, 1)

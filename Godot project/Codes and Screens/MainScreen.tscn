@@ -14,4 +14,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.688787, 0.942557, 0.863869, 1)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_ytdqf")]
+[node name="HUD" parent="." instance=ExtResource("2_ytdqf")]
