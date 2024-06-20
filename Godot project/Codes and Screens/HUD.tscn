@@ -9,38 +9,6 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_l7sqv")
 
-[node name="StartButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = 41.0
-offset_right = 61.5
-offset_bottom = 122.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_lj281")
-theme_override_font_sizes/font_size = 60
-text = "Start"
-
-[node name="QuitButton" type="Button" parent="." groups=["Starting elements"]]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = 171.5
-offset_right = 48.0
-offset_bottom = 252.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_lj281")
-theme_override_font_sizes/font_size = 60
-text = "Quit"
-
 [node name="Label" type="Label" parent="." groups=["Starting elements"]]
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,5 +36,30 @@ position = Vector2(451, 115)
 scale = Vector2(0.600001, 0.600001)
 texture = ExtResource("5_rqpb5")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 96.0
+offset_right = 61.5
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_lj281")
+theme_override_font_sizes/font_size = 150
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" groups=["Starting elements"]]
+layout_mode = 2
+theme = ExtResource("3_lj281")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
