@@ -14,4 +14,4 @@ func _process(delta):
 	pass
 func BeginGame():
 	row = 6
-	col =6
+	col = 6

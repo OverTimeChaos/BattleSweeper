@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 #varible for individual tile
 var is_cover = true
 var flagged = false
