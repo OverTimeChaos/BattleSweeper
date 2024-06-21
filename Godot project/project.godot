@@ -15,6 +15,10 @@ run/main_scene="res://Codes and Screens/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Decals/Icon.svg"
 
+[autoload]
+
+StandAlone="*res://Codes and Screens/StandAlone.gd"
+
 [display]
 
 window/size/viewport_width=667
