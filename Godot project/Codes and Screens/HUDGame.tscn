@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxl42l5poe14j"]
+
+[ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="1_5cx8q"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.5
+offset_top = -340.0
+offset_right = 260.5
+offset_bottom = -241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5cx8q")
+theme_override_colors/font_color = Color(0.786827, 0.518406, 0.40081, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "BattleSweeper"

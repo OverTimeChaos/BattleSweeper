@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct1lmlnctjkpj"]
 
-[ext_resource type="Script" path="res://Codes and Screens/HUD.gd" id="1_l7sqv"]
+[ext_resource type="Script" path="res://Codes and Screens/HUDStart.gd" id="1_l7sqv"]
 [ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_xgvwk"]
 [ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="3_lj281"]
 [ext_resource type="Texture2D" uid="uid://dhi2da2kni5p6" path="res://Decals/Icon.svg" id="4_0ot8p"]
@@ -42,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = 96.0
-offset_right = 61.5
-offset_bottom = 262.0
+offset_left = -145.5
+offset_top = 18.0
+offset_right = 145.5
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 

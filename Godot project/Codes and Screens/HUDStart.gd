@@ -11,14 +11,11 @@ func _process(delta):
 	pass
 
 
-#quits the game
+
 func _on_quit_button_pressed():
-	get_tree().quit()
+	get_tree().quit() #quits the game
 	
 #starts the game 
 func _on_start_button_pressed():
-	#Hides all nodes in the group "starting elements"
-	for node in get_tree().get_nodes_in_group("Starting elements"):
-		node.hide()
-	$StartButton.hide()
-	
+	get_tree().change_scene_to_file("res://Codes and Screens/MainGame.tscn") #Swtiches to the main game screen
+	StandAlone.BeginGame()
