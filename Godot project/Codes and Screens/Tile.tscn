@@ -8,7 +8,11 @@
 script = ExtResource("1_jb1yw")
 
 [node name="Uncovered" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_qjw4r")
+offset = Vector2(260, 600)
 
 [node name="Covered" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_yxj1u")
+offset = Vector2(260, 600)

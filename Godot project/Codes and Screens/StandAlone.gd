@@ -1,6 +1,6 @@
 extends Node
 
-#row and columns for the tile assginment
+#Allows assigning the amount of tiles on the play screen
 var row = 0
 var col = 0
 
@@ -13,5 +13,5 @@ func _ready():
 func _process(delta):
 	pass
 func BeginGame():
-	row = 6
-	col = 6
+	row = 8
+	col = 8

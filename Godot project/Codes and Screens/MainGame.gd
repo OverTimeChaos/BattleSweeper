@@ -6,11 +6,12 @@ var tiles
 
 func _ready(): #Calls when the scene is opened
 	
-	#Spreads the tiles evenly
+	#Spreads the tiles evenly per 65px from orign
 	for r in StandAlone.row: 
 		for c in StandAlone.col:
 			var t = Tile.instantiate()
-			t.position = Vector2(r, c) * 54
+			print (Vector2(r,c)*65) 
+			t.position = Vector2(r, c)*65
 			add_child(t)
 	tiles = get_children()
 
