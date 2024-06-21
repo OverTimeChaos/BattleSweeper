@@ -18,4 +18,4 @@ func _on_quit_button_pressed():
 #starts the game 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Codes and Screens/MainGame.tscn") #Swtiches to the main game screen
-	StandAlone.BeginGame()
+	StandAlone.BeginGame() #Resets values and begins the game anew

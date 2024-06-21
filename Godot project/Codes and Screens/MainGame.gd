@@ -1,0 +1,20 @@
+extends Node
+var Tile = preload("res://Codes and Screens/Tile.tscn") #preloads the tile scene onto this scene
+var tiles 
+
+
+
+func _ready(): #Calls when the scene is opened
+	
+	#Spreads the tiles evenly
+	for r in StandAlone.row: 
+		for c in StandAlone.col:
+			var t = Tile.instantiate()
+			t.position = Vector2(r, c) * 54
+			add_child(t)
+	tiles = get_children()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
