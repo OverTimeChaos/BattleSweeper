@@ -10,7 +10,6 @@ func _ready(): #Calls when the scene is opened
 	for r in StandAlone.row: 
 		for c in StandAlone.col:
 			var t = Tile.instantiate()
-			print (Vector2(r,c)*65) 
 			t.position = Vector2(r, c)*65
 			add_child(t)
 	tiles = get_children()

@@ -4,6 +4,13 @@ extends Node
 var row = 0
 var col = 0
 
+#Level Completation condition variables
+var MineNumber = 0
+var FlagNumber = 0
+var MineFlagged = 0 
+var TilesOpened = 0
+var tilesRemain = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
