@@ -7,8 +7,8 @@ var tiles
 func _ready(): #Calls when the scene is opened
 	
 	#Spreads the tiles evenly per 65px from orign
-	for r in StandAlone.row: 
-		for c in StandAlone.col:
+	for r in StandAlone.Row: 
+		for c in StandAlone.Col:
 			var t = Tile.instantiate()
 			t.position = Vector2(r, c)*65
 			add_child(t)
