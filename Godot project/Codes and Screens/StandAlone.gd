@@ -10,7 +10,7 @@ var Col = 0
 #Level variables
 var MineNumber = 0
 #Ship Variable 
-var ShipParts = 17
+var ShipParts = 0
 #Level Completation condition variables
 var MineFlagged = 0 
 var TilesUncovered = 0
@@ -35,12 +35,12 @@ func BeginGame():
 	Row = 8
 	Col = 8
 	MineNumber = randi_range(2,8)
-	print (MineNumber)
+	ShipParts = 17
 	MineFlagged = 0
 	TilesRemain = 64-(MineNumber+ShipParts)
-	print (TilesRemain)
 	TilesUncovered = 0
 	Complete = false
 	GameOver = false
 	PlayerScore = 0
+	
 

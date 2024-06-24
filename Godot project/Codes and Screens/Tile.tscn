@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d06cxn84m8nas"]
+[gd_scene load_steps=6 format=3 uid="uid://d06cxn84m8nas"]
 
 [ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
 [ext_resource type="Texture2D" uid="uid://dht4f37god63p" path="res://Decals/MineSweeper/cells/WinmineXP/cellup.svg" id="2_yxj1u"]
 [ext_resource type="Texture2D" uid="uid://dlvfv4qlxb1cg" path="res://Decals/Mine.png" id="3_pck60"]
+[ext_resource type="Texture2D" uid="uid://7jmwey0b6vfy" path="res://Decals/Explosion.svg" id="4_6i7ch"]
 
 [node name="Tile" type="Node2D"]
 script = ExtResource("1_jb1yw")
@@ -18,6 +19,12 @@ visible = false
 position = Vector2(106, 241)
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("3_pck60")
+
+[node name="Explosion" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(107, 241)
+scale = Vector2(0.0847222, 0.0847222)
+texture = ExtResource("4_6i7ch")
 
 [node name="Covered" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
