@@ -1,34 +1,42 @@
 extends Node2D
+# preloads all the tile frames for performance
+const ONE = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell1.svg")
+const TWO = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell2.svg")
+const THREE = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell3.svg")
+const FOUR = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell4.svg")
+const FIVE = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell5.svg")
+const SIX = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell6.svg")
+const SEVEN = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell7.svg")
+const EIGHT = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell8.svg")
+const EIGHT = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell8.svg")
 #varible for individual tile
-var is_cover = true
-var flagged = false
-var is_Mine = false
+var Covered = true
+var Flagged = false
+var IsMine = false
 
 func SetMine(): #function for setting a bomb on an individual tile
-	is_Mine = true #the tile has a bomb 
+	IsMine = true #the tile has a bomb 
 	$Mine.show() #Shows "Mine" Sprite
 
 
 func uncover(): #function for uncovering a tile
-	if flagged == false and is_cover == true: #if the tile is not flagged and a cover exists, player can uncover tile
+	if Flagged == false and Covered == true: #if the tile is not flagged and a cover exists, player can uncover tile
 		$Covered.hide() #hides the "Covered" sprite
 		
-		if is_Mine == true: #if the tile is a mine, the mine will explode creating a radius
+		if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
 			pass
 		
-		#if the tile is not a bomb, game proceeds
-		elif is_Mine == false:	
-			StandAlone.timeron = true #starts the timer
-			StandAlone.tiles_opened += 1 #adds 1 to tiles opened for win condition
-			is_cover = false #cover has been removed, so is_cover is false
+		
+		elif IsMine == false: #if the tile is not a bomb, game proceeds
+			StandAlone.TilesUncovered += 1 #adds 1 to tiles opened for completion condition
+			Covered = false #Removes the "Covered" sprite
 			
-			#displays the number of bombs around the uncovered tile in a 1 tile radius
-			var count_surrounds = 0
+			var SurroundMineCount = 0 #displays the number of bombs around the uncovered tile in a 1 tile radius
 			for tile in get_surrounds():
 				if tile.is_bomb:
-					count_surrounds += 1
-			if count_surrounds > 0:
-				$Label.text = str(count_surrounds)
+					SurroundMineCount += 1
+			if SurroundMineCount > 0:
+				$Label.text = str(SurroundMineCount)
 			else:
 				for tile in get_surrounds():
 					if tile.is_cover:
