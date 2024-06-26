@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d06cxn84m8nas"]
+[gd_scene load_steps=7 format=3 uid="uid://d06cxn84m8nas"]
 
 [ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
 [ext_resource type="Texture2D" uid="uid://dht4f37god63p" path="res://Decals/MineSweeper/cells/WinmineXP/cellup.svg" id="2_yxj1u"]
 [ext_resource type="Texture2D" uid="uid://dlvfv4qlxb1cg" path="res://Decals/Mine.png" id="3_pck60"]
 [ext_resource type="Texture2D" uid="uid://7jmwey0b6vfy" path="res://Decals/Explosion.svg" id="4_6i7ch"]
+[ext_resource type="Texture2D" uid="uid://cf7mvy7qxaqrw" path="res://Decals/MineSweeper/cells/WinmineXP/cellflag.svg" id="6_sqn0l"]
 
 [node name="Tile" type="Node2D"]
 script = ExtResource("1_jb1yw")
@@ -16,8 +17,8 @@ offset = Vector2(260, 600)
 
 [node name="Mine" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(106, 241)
-scale = Vector2(0.21, 0.21)
+position = Vector2(107.875, 242.875)
+scale = Vector2(0.225, 0.225)
 texture = ExtResource("3_pck60")
 
 [node name="Explosion" type="Sprite2D" parent="."]
@@ -27,7 +28,6 @@ scale = Vector2(0.0847222, 0.0847222)
 texture = ExtResource("4_6i7ch")
 
 [node name="Covered" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_yxj1u")
 offset = Vector2(260, 600)
@@ -35,5 +35,15 @@ offset = Vector2(260, 600)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 72.0
+offset_top = 208.0
+offset_right = 136.0
+offset_bottom = 272.0
+
+[node name="Flag" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(104, 240)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_sqn0l")
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
