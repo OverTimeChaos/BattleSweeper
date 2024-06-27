@@ -12,8 +12,11 @@ var IsOccupied = false
 
 	
 func SetMine(): #function for setting a bomb on an individual tile
-	IsMine = true #the tile has a bomb 
-	$Mine.show() #Shows "Mine" Sprite
+	if IsOccupied == true:
+		pass 
+	else:
+		IsMine = true #the tile has a bomb 
+		$Mine.show() #Shows "Mine" Sprite
 
 
 func uncover(): #function for uncovering a tile

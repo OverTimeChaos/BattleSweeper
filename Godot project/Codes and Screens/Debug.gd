@@ -10,6 +10,7 @@ func _process(delta):
 			command = "" #clears "command" varibale for debuging
 			print ("Debug on")
 		else:
+			ListenerOn = false
 			print ("Debug off")
 	if ListenerOn == true:
 		if command == "COVER":  #Hides frames when "cover" is entered
