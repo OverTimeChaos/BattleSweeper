@@ -1,22 +1,15 @@
 extends Node2D
-# preloads all the tile frames for performance
-const ONE = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell1.svg")
-const TWO = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell2.svg")
-const THREE = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell3.svg")
-const FOUR = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell4.svg")
-const FIVE = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell5.svg")
-const SIX = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell6.svg")
-const SEVEN = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell7.svg")
-const EIGHT = preload ("res://Decals/MineSweeper/cells/WinmineXP/cell8.svg")
-#Array of textures
 
-var textures = [ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT]
+#Debug varaibles
+var CoveredDebug = true
 
 #varible for individual tile
 var Covered = true
 var Flagged = false
 var IsMine = false
 var IsOccupied = false
+
+
 	
 func SetMine(): #function for setting a bomb on an individual tile
 	IsMine = true #the tile has a bomb 
@@ -41,7 +34,7 @@ func uncover(): #function for uncovering a tile
 				if tile.IsMine:
 					SurroundMineCount += 1 #varibale used to assign uncovered tile texture
 			if SurroundMineCount > 0: #if there is a mine touching
-				$Numbers.texture = textures[SurroundMineCount-1] # Set the right number texture for amount of mines touching
+				$Numbers.set_frame(SurroundMineCount) # Set the right number texture for amount of mines touching
 			else:
 				for tile in GetSurroundings():
 					if tile.Covered:
@@ -108,11 +101,18 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 		
 func _on_control_gui_input(event):
 	if (event) is InputEventMouseButton: #detects mouse input
+		#Calls uncover function on left click
+		if event.is_action_pressed("LeftClick"):
+			uncover()
 		
-			#Calls uncover function on left click
-			if event.is_action_pressed("LeftClick"):
-				uncover()
+		#Calls flag function on right click
+		if event.is_action_pressed("RightClick"):
+			ToggleFlag()
 			
-			#Calls flag function on right click
-			if event.is_action_pressed("RightClick"):
-				ToggleFlag()
+func DebugCovered(): #uncovers or covers tiles for debug purposes
+	if CoveredDebug == false:
+		$Covered.show()
+		CoveredDebug = true
+	else:
+		$Covered.hide()
+		CoveredDebug = false

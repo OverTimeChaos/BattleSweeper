@@ -1,6 +1,8 @@
 extends Node2D
 var Tile = preload("res://Codes and Screens/Tile.tscn") #preloads the tile scene onto this scene
-var tiles 
+var tiles
+
+
 
 func _ready(): #Calls when the scene is opened
 	
@@ -20,3 +22,8 @@ func SetMines(): #function for setting bombs on random tiles
 		if tile.IsMine == false: #Control structure for making sure mines don't stack/overlap on the same tile
 			tile.SetMine() #function called from the preloaded 'Tile' scene in line 3
 			n += 1
+
+func Debug(type):
+	if type == "cover":
+		for tile in tiles:
+			tile.DebugCovered()
