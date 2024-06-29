@@ -1,20 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxl42l5poe14j"]
+[gd_scene load_steps=3 format=3 uid="uid://dxl42l5poe14j"]
 
 [ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="1_5cx8q"]
+[ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="2_qdups"]
 
 [node name="Main game Graphics" type="CanvasLayer"]
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -264.0
-offset_top = 16.0
-offset_right = 254.0
-offset_bottom = 115.0
+offset_left = -259.0
+offset_top = 10.0
+offset_right = 259.0
+offset_bottom = 192.0
 grow_horizontal = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("1_5cx8q")
 theme_override_colors/font_color = Color(0.786827, 0.518406, 0.40081, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 96
 text = "BattleSweeper"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_qdups")
+theme_override_colors/font_color = Color(0.952941, 0.270588, 0.231373, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "Left click to reveal tile
+Right click to flag tile"
+horizontal_alignment = 1

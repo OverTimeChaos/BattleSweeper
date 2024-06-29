@@ -79,19 +79,28 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 			$Flag.show()
 			Flagged = true 
 			
-			#if the flagged tile contains a mine, adds 1 to mine flagged for complete condition
+				# if the unflagged tile does not contain a mine, remove 1 to MineFlagged for completion condition
+			if IsMine == false:
+				StandAlone.MineFlagged -= 1
+		
+			#if the flagged tile contains a mine, adds 1 to MineFlagged for complete condition
 			if IsMine== true:
 				StandAlone.MineFlagged += 1
 				
 			#Check if player has completed the level. Complete condition
-				if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
+			if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
 					get_tree().quit()
 		
 		#If the tile is already flagged, unflag the tile
 		elif Flagged == true:
 			$Flag.hide()
 			
-			#if the unflagged tile contains a mine, remove 1 to mine flagged for completion condition
+			# if the unflagged tile does not contain a mine, add 1 to MineFlagged for completion condition
+			if IsMine == false:
+				StandAlone.MineFlagged += 1
+				if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
+						get_tree().quit()
+			#if the unflagged tile contains a mine, remove 1 to MineFlagged for completion condition
 			if IsMine == true:
 				StandAlone.MineFlagged -= 1 
 			Flagged = false 
