@@ -9,7 +9,7 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_l7sqv")
 
-[node name="Label" type="Label" parent="." groups=["Starting elements"]]
+[node name="Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -27,11 +27,11 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 96
 text = "BattleSweeper"
 
-[node name="Icon" type="Sprite2D" parent="." groups=["Starting elements"]]
+[node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(253, 149)
 texture = ExtResource("4_0ot8p")
 
-[node name="Mine" type="Sprite2D" parent="." groups=["Starting elements"]]
+[node name="Mine" type="Sprite2D" parent="."]
 position = Vector2(451, 115)
 scale = Vector2(0.600001, 0.600001)
 texture = ExtResource("5_rqpb5")
@@ -55,7 +55,7 @@ theme = ExtResource("3_lj281")
 theme_override_font_sizes/font_size = 150
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" groups=["Starting elements"]]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_lj281")
 theme_override_font_sizes/font_size = 60
