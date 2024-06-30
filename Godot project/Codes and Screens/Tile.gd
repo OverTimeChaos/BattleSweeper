@@ -123,7 +123,8 @@ func _on_control_gui_input(event):
 			
 func DebugCovered(): #uncovers or covers tiles for debug purposes
 	if CoveredDebug == false:
-		$Covered.show()
+		if Covered == true:
+			$Covered.show()
 		CoveredDebug = true
 	else:
 		$Covered.hide()

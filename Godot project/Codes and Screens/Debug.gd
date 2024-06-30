@@ -20,7 +20,7 @@ func _process(delta):
 
 # Get pressed keys
 func _input(event):
-	if ListenerOn == true:
+	if ListenerOn == true: # stops the key listner if debug is toggled
 		if event is InputEventKey:
 			if event.pressed:
 				command = command + event.as_text_keycode() #adds the exstince string command ()
