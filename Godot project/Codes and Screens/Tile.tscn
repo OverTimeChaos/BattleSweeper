@@ -64,16 +64,16 @@ position = Vector2(107.875, 242.875)
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("3_pck60")
 
+[node name="Covered" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_yxj1u")
+offset = Vector2(260, 600)
+
 [node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(107, 241)
 scale = Vector2(0.0847222, 0.0847222)
 texture = ExtResource("4_6i7ch")
-
-[node name="Covered" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_yxj1u")
-offset = Vector2(260, 600)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

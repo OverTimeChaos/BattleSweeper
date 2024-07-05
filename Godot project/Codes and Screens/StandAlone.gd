@@ -23,8 +23,8 @@ var GameOver = false
 #Variable used to save scores 
 var PlayerScore = 0
 
-
-func BeginGame():
+#Set values
+func BeginGame(): 
 	Row = 8
 	Col = 8
 	MineNumber = randi_range(4,6)
@@ -35,5 +35,16 @@ func BeginGame():
 	Complete = false
 	GameOver = false
 	PlayerScore = 0
+
+#resets values after a level complete (excludes reseting GameOver and PlayerScore variables)
+func LevelReset(): 
+	Row = 8
+	Col = 8
+	MineNumber = randi_range(4,6)
+	ShipParts = 17
+	MineFlagged = 0
+	TilesRemain = 64-(MineNumber+ShipParts)
+	TilesUncovered = 0-(ShipParts)
+	Complete = false
 	
 

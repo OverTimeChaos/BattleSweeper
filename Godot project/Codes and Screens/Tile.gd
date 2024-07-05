@@ -24,7 +24,13 @@ func uncover(): #function for uncovering a tile
 		$Covered.hide() #hides the "Covered" sprite
 		
 		if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
-			pass
+			Covered = false
+			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
+			$Mine.hide()
+			$Explosion.show()
+			for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
+				tile.explode()
+				
 		
 		
 		elif IsMine == false: #if the tile is not a mine, the game proceeds
@@ -109,7 +115,8 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 		elif Covered == false:
 			pass
 
-	
+func explode(): #shows the explosion sprite
+	$Explosion.show()
 		
 func _on_control_gui_input(event):
 	if (event) is InputEventMouseButton: #detects mouse input

@@ -7,7 +7,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Debug"): 
 		if ListenerOn == false: #turns off and on debugger
 			ListenerOn = true
-			command = "" #clears "command" varibale for debuging
+			command = "" #clears "command" varibale for debugging
 			print ("Debug on")
 		else:
 			ListenerOn = false
@@ -20,7 +20,7 @@ func _process(delta):
 
 # Get pressed keys
 func _input(event):
-	if ListenerOn == true: # stops the key listner if debug is toggled
+	if ListenerOn == true: # stops the key listner if debug is toggled off
 		if event is InputEventKey:
 			if event.pressed:
-				command = command + event.as_text_keycode() #adds the exstince string command ()
+				command = command + event.as_text_keycode() #adds to the exsitent string "command" 

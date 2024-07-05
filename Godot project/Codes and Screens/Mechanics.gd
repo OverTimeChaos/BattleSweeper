@@ -3,8 +3,8 @@ var Tile = preload("res://Codes and Screens/Tile.tscn") #preloads the tile scene
 var tiles
 
 
-
-func _ready(): #Calls when the scene is opened
+#Calls when the scene is opened
+func _ready(): 
 	
 	#Spreads the tiles evenly per 65px from left corner of MineSpace rect
 	for r in StandAlone.Row: 
@@ -13,9 +13,10 @@ func _ready(): #Calls when the scene is opened
 			t.position = Vector2(r, c)*65
 			add_child(t)
 	tiles = get_children()
-	SetMines() #Sets the mines
+	SetMines()
 
-func SetMines(): #function for setting bombs on random tiles
+#function for setting bombs on random tiles
+func SetMines(): 
 	var n = 0 # counting varaible
 	while n < StandAlone.MineNumber: #Sets mines until the number of bombs are met
 		var tile = tiles[randi() % len(tiles)]
@@ -23,7 +24,8 @@ func SetMines(): #function for setting bombs on random tiles
 			tile.SetMine() #function called from the preloaded 'Tile' scene in line 3
 			n += 1
 
+# function to hide Covered sprite on tiles
 func Debug(type):
 	if type == "cover":
-		for tile in tiles:
+		for tile in tiles: #Allows the function to be run on all tiles instances 
 			tile.DebugCovered()
