@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://o7nqwyknwwfe"]
+
+[ext_resource type="PackedScene" uid="uid://nehmjhqccvs7" path="res://Codes and Screens/HUDOver.tscn" id="1_heqwx"]
+
+[node name="OverScreen" type="Node"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.879944, 0.605999, 0.697311, 1)
+
+[node name="HUD" parent="." instance=ExtResource("1_heqwx")]

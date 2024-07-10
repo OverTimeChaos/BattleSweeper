@@ -1,5 +1,9 @@
 extends Node2D
 
+#Constants
+const boom = "boom"
+const default = "default"
+
 #Debug varaibles
 var CoveredDebug = true
 
@@ -8,13 +12,12 @@ var Covered = true
 var Flagged = false
 var IsMine = false
 var IsOccupied = false
+var Exploded = false
+
 
 
 	
 func SetMine(): #function for setting a bomb on an individual tile
-	if IsOccupied == true:
-		pass 
-	else:
 		IsMine = true #the tile has a bomb 
 		$Mine.show() #Shows "Mine" Sprite
 
@@ -25,13 +28,16 @@ func uncover(): #function for uncovering a tile
 		
 		if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
 			Covered = false
+			Events.emit_signal("EventTrigger",boom)  #changes text to explosion message
 			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
+			StandAlone.MineNumber -= 1
 			$Mine.hide()
-			$Explosion.show()
+			explode()
 			for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
 				tile.explode()
-				
-		
+			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
+			Events.emit_signal("EventTrigger", default) #sets it back to default message
+			$Numbers.set_frame(9)
 		
 		elif IsMine == false: #if the tile is not a mine, the game proceeds
 			StandAlone.TilesUncovered += 1 #adds 1 to tiles opened for completion condition
@@ -52,7 +58,7 @@ func uncover(): #function for uncovering a tile
 						
 		#Completion condition. If mines needed to be flagged have been flagged or tiles to be opened have been opened
 		if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
 
 						
 func GetSurroundings(): #function for getting a tile's surroundings for neighbouring mines
@@ -95,7 +101,7 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 				
 			#Check if player has completed the level. Complete condition
 			if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-					get_tree().quit()
+					get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
 		
 		#If the tile is already flagged, unflag the tile
 		elif Flagged == true:
@@ -105,7 +111,7 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 			if IsMine == false:
 				StandAlone.MineFlagged += 1
 				if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-						get_tree().quit()
+						get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
 			#if the unflagged tile contains a mine, remove 1 to MineFlagged for completion condition
 			if IsMine == true:
 				StandAlone.MineFlagged -= 1 
@@ -116,8 +122,14 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 			pass
 
 func explode(): #shows the explosion sprite
+	Exploded = true #sets tile to exploded so that if ship part is on exploded it will damage the ship part
 	$Explosion.show()
-		
+	await get_tree().create_timer(1.0).timeout # shows explosion for the player to register that the mine has exploded
+	$Explosion.hide()
+	Exploded = false #not neccesary as if there was a ship near the radius of the tile there would be already destroyed
+	# however is great for scalablity 
+	
+	
 func _on_control_gui_input(event):
 	if (event) is InputEventMouseButton: #detects mouse input
 		#Calls uncover function on left click
@@ -136,3 +148,11 @@ func DebugCovered(): #uncovers or covers tiles for debug purposes
 	else:
 		$Covered.hide()
 		CoveredDebug = false
+
+
+func _on_control_mouse_entered():
+	$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
+
+
+func _on_control_mouse_exited():
+	$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://la2cjrvna2eq"]
+
+[ext_resource type="PackedScene" uid="uid://tn0byb4ltqgt" path="res://Codes and Screens/HUDComplete.tscn" id="1_it4wy"]
+
+[node name="Main" type="Node"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0672688, 0.593156, 0.756813, 1)
+
+[node name="HUD" parent="." instance=ExtResource("1_it4wy")]

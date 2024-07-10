@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://trevuaislst7"]
+
+[ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="1_ns87j"]
+[ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_q55bx"]
+
+[node name="HUDScore" type="CanvasLayer"]
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -360.0
+offset_right = 259.0
+offset_bottom = -261.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_q55bx")
+theme_override_colors/font_color = Color(0.786827, 0.518406, 0.40081, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "BattleSweeper"
+
+[node name="No more ships" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -272.0
+offset_right = 137.5
+offset_bottom = -222.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ns87j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="Bottom" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -184.0
+offset_right = 209.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.19018, 1.19018)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bottom"]
+layout_mode = 2
+alignment = 1
+
+[node name="Name1" type="Label" parent="Bottom/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ns87j")
+theme_override_colors/font_color = Color(0.980392, 0.666667, 0.203922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 69
+text = "FinalScore 
+FinalScore 
+FinalScore 
+FinalScore 
+FinalScore 
+"
+
+[node name="Number1" type="Label" parent="Bottom/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ns87j")
+theme_override_colors/font_color = Color(0.980392, 0.666667, 0.203922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 69
+text = " 0
+ 0
+ 0
+ 0
+ 0"

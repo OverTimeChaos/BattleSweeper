@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://tn0byb4ltqgt"]
+
+[ext_resource type="Script" path="res://Codes and Screens/HUDComplete.gd" id="1_2c2al"]
+[ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_iywul"]
+[ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="5_sda2f"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_2c2al")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -272.0
+offset_right = 259.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_iywul")
+theme_override_colors/font_color = Color(0.786827, 0.518406, 0.40081, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "BattleSweeper"
+
+[node name="Complete" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -136.0
+offset_right = 202.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_sda2f")
+theme_override_colors/font_color = Color(1, 0.827451, 0.0352941, 1)
+theme_override_font_sizes/font_size = 71
+text = "Level Complete!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = 24.0
+offset_right = 244.5
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_sda2f")
+theme_override_font_sizes/font_size = 150
+text = "Continue"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Current" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_sda2f")
+theme_override_colors/font_color = Color(0.788235, 0.517647, 0.4, 1)
+theme_override_font_sizes/font_size = 54
+text = "Current Score:"
+
+[node name="Number" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_sda2f")
+theme_override_colors/font_color = Color(0.788235, 0.517647, 0.4, 1)
+theme_override_font_sizes/font_size = 54
+text = "0"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

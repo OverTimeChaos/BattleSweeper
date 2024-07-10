@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d06cxn84m8nas"]
+[gd_scene load_steps=19 format=3 uid="uid://d06cxn84m8nas"]
 
 [ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://kmgp80vwuh22" path="res://Decals/MineSweeper/cells/WinmineXP/cell6.svg" id="8_jxsfc"]
 [ext_resource type="Texture2D" uid="uid://bbfmq25xshtoo" path="res://Decals/MineSweeper/cells/WinmineXP/cell7.svg" id="9_vqmcg"]
 [ext_resource type="Texture2D" uid="uid://sq13oucruvmi" path="res://Decals/MineSweeper/cells/WinmineXP/cell8.svg" id="10_hdxr2"]
+[ext_resource type="Texture2D" uid="uid://d3gmn7m7ypi5s" path="res://Decals/TileHover.png" id="11_8vhnq"]
+[ext_resource type="Texture2D" uid="uid://bntwy3tpkdh1u" path="res://Decals/UsedMine.png" id="11_up7g6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh2tx"]
 animations = [{
@@ -44,6 +46,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_hdxr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_up7g6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsl7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yxj1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8vhnq")
 }],
 "loop": true,
 "name": &"default",
@@ -64,9 +83,9 @@ position = Vector2(107.875, 242.875)
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("3_pck60")
 
-[node name="Covered" type="Sprite2D" parent="."]
+[node name="Covered" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_yxj1u")
+sprite_frames = SubResource("SpriteFrames_dsl7g")
 offset = Vector2(260, 600)
 
 [node name="Explosion" type="Sprite2D" parent="."]
@@ -90,3 +109,5 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_sqn0l")
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
