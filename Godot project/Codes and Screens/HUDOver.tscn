@@ -100,4 +100,15 @@ placeholder_text = "Name? Max 10 Letters"
 alignment = 1
 max_length = 10
 
+[node name="notsave" type="Label" parent="Bottom"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_ntebm")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Not Saved
+Score lower then 5th highest score
+"
+horizontal_alignment = 1
+
 [connection signal="text_submitted" from="Bottom/LineEdit" to="." method="_on_line_edit_text_submitted"]

@@ -8,14 +8,17 @@ func _process(delta):
 		if ListenerOn == false: #turns off and on debugger
 			ListenerOn = true
 			command = "" #clears "command" varibale for debugging
-			print ("Debug on")
+			$VBoxContainer.show()
 		else:
 			ListenerOn = false
-			print ("Debug off")
+			$VBoxContainer.hide()
 	if ListenerOn == true:
+		$VBoxContainer/Command.text = command
 		if Input.is_action_just_pressed("ClearDebug"):
 			command = ""
-			print ("Cleared")
+			$"VBoxContainer/Debug message".text = "Cleared"
+			await get_tree().create_timer(1.0).timeout
+			$"VBoxContainer/Debug message".text = ""
 		if command == "COVER":  #Hides frames when "cover" is entered
 			$Mechanics.Debug("cover")
 			command = ""  # clears "command" variable so that the same command doesn't play again
@@ -24,10 +27,14 @@ func _process(delta):
 			command = ""
 		if command == "GAME":
 			$Mechanics.Debug("game")
+			command = ""
 		if command == "ADD":
 			StandAlone.PlayerScore += 100
-			print ("Added")
 			command = ""
+			$"VBoxContainer/Debug message".text = "Added"
+			await get_tree().create_timer(1.0).timeout
+			$"VBoxContainer/Debug message".text = ""
+			
 
 # Get pressed keys
 func _input(event):
@@ -35,3 +42,4 @@ func _input(event):
 		if event is InputEventKey:
 			if event.pressed:
 				command = command + event.as_text_keycode() #adds to the exsitent string "command" 
+				

@@ -1,9 +1,20 @@
 extends CanvasLayer
-
-
+var fileexists = FileAccess.file_exists("user://scores.cfg")
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+func _ready(): #
+	if fileexists == false: #if scores.cfg doesn't exist configs defualt file (usuaully on first boot up of the game)
+		var config = ConfigFile.new()
+		config.set_value("Player1", "player_name", "Player1")
+		config.set_value("Player1", "score", 0)
+		config.set_value("Player2", "player_name", "Player2")
+		config.set_value("Player2", "score", 0)
+		config.set_value("Player3", "player_name", "Player3")
+		config.set_value("Player3", "score", 0)
+		config.set_value("Player4", "player_name", "Player4")
+		config.set_value("Player4", "score", 0)
+		config.set_value("Player5", "player_name", "Player5")
+		config.set_value("Player5", "score", 0)
+		config.save("user://scores.cfg")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

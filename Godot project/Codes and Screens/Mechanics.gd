@@ -34,4 +34,4 @@ func Debug(type):
 	if type == "level":
 		get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
 	if type == "game":
-		pass
+		get_tree().change_scene_to_file("res://Codes and Screens/OverScreen.tscn") 

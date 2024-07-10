@@ -1,6 +1,10 @@
 extends Node
 
-
+#score arrays and dictionaries
+var scoresandnames = {}
+var scores = []
+var names = []
+var sections 
 #None of these variables outside of the function are necessaryly needed to be predefined to make the game work 
 #However it helps with scablitliy of the game in the future
 #Allows assigning the amount of tiles on the play screen 
@@ -21,7 +25,7 @@ var Complete = false
 var GameOver = false
 
 #Variable used to save scores 
-var PlayerScore = 0
+var PlayerScore = 10000
 
 #Set values
 func BeginGame(): 
@@ -48,3 +52,33 @@ func LevelReset():
 	Complete = false
 	
 
+func openfile():
+	var config = ConfigFile.new() #new instantance of ConfigFile
+	
+	# Load data from a file.
+	var file = config.load("user://scores.cfg")
+	sections = config.get_sections()
+	# If the file didn't load, ignore it.
+	if file != OK:
+		return
+
+	# Iterate over all sections.
+	for player in sections:
+		# Fetch the data for each section.
+		var player_name = config.get_value(player, "player_name") #grabs player name from config
+		var player_score = config.get_value(player, "score") #grabs player score from config
+		scoresandnames[player_name] = player_score #puts them into a dictionary
+		scores.append (scoresandnames[player_name]) #puts the scores into an array
+	SortNumber() #sorts the scores from biggest to smallest
+	SortName() #sorts names by biggest scores archive to smallest
+	
+func SortNumber():
+	scores.sort_custom(func(a,b): return a>b) #sorts scores by asscending order
+func SortName():
+	var sorted_list = scoresandnames.keys()
+	sorted_list.sort_custom(func(a,b): return scoresandnames[a] > scoresandnames[b]) #sorts names by score
+	names = sorted_list
+	
+func Sortnew(): #sorts with new score and makes a new dictionary 
+	SortNumber()
+	SortName()

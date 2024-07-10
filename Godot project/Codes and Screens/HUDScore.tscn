@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://trevuaislst7"]
+[gd_scene load_steps=4 format=3 uid="uid://trevuaislst7"]
 
 [ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="1_ns87j"]
+[ext_resource type="Script" path="res://Codes and Screens/HUDScore.gd" id="1_uy8qy"]
 [ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_q55bx"]
 
 [node name="HUDScore" type="CanvasLayer"]
+script = ExtResource("1_uy8qy")
 
 [node name="Title" type="Label" parent="."]
 anchors_preset = 8
@@ -59,29 +61,19 @@ scale = Vector2(1.19018, 1.19018)
 layout_mode = 2
 alignment = 1
 
-[node name="Name1" type="Label" parent="Bottom/HBoxContainer"]
+[node name="Name and Number" type="Label" parent="Bottom/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ns87j")
 theme_override_colors/font_color = Color(0.980392, 0.666667, 0.203922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 69
-text = "FinalScore 
-FinalScore 
-FinalScore 
-FinalScore 
-FinalScore 
-"
 
 [node name="Number1" type="Label" parent="Bottom/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_ns87j")
 theme_override_colors/font_color = Color(0.980392, 0.666667, 0.203922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 69
-text = " 0
- 0
- 0
- 0
- 0"
