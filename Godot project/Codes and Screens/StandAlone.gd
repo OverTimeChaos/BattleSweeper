@@ -72,6 +72,9 @@ func openfile():
 	SortNumber() #sorts the scores from biggest to smallest
 	SortName() #sorts names by biggest scores archive to smallest
 	
+	
+func configShip(ship,part):
+	pass 
 func SortNumber():
 	scores.sort_custom(func(a,b): return a>b) #sorts scores by asscending order
 func SortName():
