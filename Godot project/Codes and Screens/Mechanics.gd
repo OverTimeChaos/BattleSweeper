@@ -4,8 +4,9 @@ var Tile = preload("res://Codes and Screens/Tile.tscn") #preloads the tile scene
 var tiles= []
 #Variables for node info
 var noded =""
-var postioning = []
+var postioning =[0,0]
 # ship info
+var hovered = false
 var rotate = false
 var pn = 0
 var mouseinside = false 
@@ -43,9 +44,10 @@ func SetMines():
 			
 			
 			
-func Nodepostioned(node,postion): #allows the nodes infromation to be passed 
+func Nodepostioned(node,postion,hover): #allows the nodes infromation to be passed 
 	noded = node
 	postioning = postion
+	hovered = hover
 	
 	
 	
@@ -64,33 +66,33 @@ func Debug(type):
 func shipPlacer(): # allow ships to be placed
 	var offsets = []
 	var nodes = [] #array of nodes
-	if mouseinside == true:
-		if pn < 5:
-			Events.emit_signal("EventTrigger",placing,StandAlone.ships[pn]) 
-			offsets =  StandAlone.shipoffersetter(pn,rotate)
-			nodes.append(noded)
-			for offset in offsets: 
-				for tile in tiles:
-					if tile.position  == postioning + offset: 
-						nodes.append(tile)
-			for node in nodes:
-				node.indicated()
-			if Input.is_action_just_pressed("LeftClick"):
-				pn += 1
-				SetMines()
-			elif Input.is_action_just_pressed("RightClick"):
-				if rotate == false:
-					rotate = true
-				else:
-					rotate = false
-		else:
-			Events.emit_signal("EventTrigger",default,null)
-			StandAlone.ShipPlacement = false
-	
-
-
-func _on_control_mouse_entered():
-	mouseinside = true
-
-func _on_control_mouse_exited():
-	mouseinside = false
+	if pn < 5 and hovered == true :
+		Events.emit_signal("EventTrigger",placing,StandAlone.ships[pn]) 
+		offsets =  StandAlone.shipoffersetter(pn,rotate)
+		nodes.append(noded)
+		for offset in offsets: 
+			for tile in tiles:
+				if tile.position  == postioning + offset: 
+					nodes.append(tile)
+		for node in nodes:
+			node.indicated(true)
+		if Input.is_action_just_pressed("LeftClick"):
+			pn += 1
+		elif Input.is_action_just_pressed("RightClick"):
+			if rotate == false:
+				rotate = true
+			else:
+				rotate = false
+	elif hovered == false: #changes sprites of affected nodes
+		offsets =  StandAlone.shipoffersetter(pn,rotate)
+		nodes.append(noded)
+		for offset in offsets: 
+			for tile in tiles:
+				if tile.position  == postioning + offset: 
+					nodes.append(tile)
+		for node in nodes:
+			node.indicated(false)
+	else:
+		Events.emit_signal("EventTrigger",default,null)
+		SetMines() #sets mines after all ships are placed
+		StandAlone.ShipPlacement = false

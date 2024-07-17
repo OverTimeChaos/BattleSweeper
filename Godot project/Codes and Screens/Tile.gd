@@ -14,8 +14,6 @@ var IsOccupied = false
 var Exploded = false
 var shipNumber = 0
 var partNumber = 0
-
-
 	
 func SetMine(): #function for setting a bomb on an individual tile
 		IsMine = true #the tile has a bomb 
@@ -155,13 +153,19 @@ func DebugCovered(): #uncovers or covers tiles for debug purposes
 		$Covered.hide()
 		CoveredDebug = false
 
-func indicated():
-	$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
+func indicated(bool):
+	if bool == true:
+		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
+	if bool == false:
+		$Covered.set_frame(0) #As the mouses unohoveres over a tile it changes to indicate that the tile is not being selected
 
 func _on_control_mouse_entered():
-	$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
 	if StandAlone.ShipPlacement == true:
-		Events.emit_signal("NodePosition",self,position)
-
+		Events.emit_signal("NodePosition",self,position,true)
+	else:
+		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
 func _on_control_mouse_exited():
-	$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected
+	if StandAlone.ShipPlacement == true:
+		Events.emit_signal("NodePosition",self,position,false)
+	else:
+		$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected
