@@ -3,7 +3,6 @@ extends Node2D
 #Constants
 const boom = "boom"
 const default = "default"
-
 #Debug varaibles
 var CoveredDebug = true
 
@@ -13,7 +12,8 @@ var Flagged = false
 var IsMine = false
 var IsOccupied = false
 var Exploded = false
-
+var shipNumber = 0
+var partNumber = 0
 
 
 	
@@ -28,7 +28,7 @@ func uncover(): #function for uncovering a tile
 		
 		if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
 			Covered = false
-			Events.emit_signal("EventTrigger",boom)  #changes text to explosion message
+			Events.emit_signal("EventTrigger",boom,null)  #changes text to explosion message
 			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
 			StandAlone.MineNumber -= 1
 			$Mine.hide()
@@ -36,7 +36,7 @@ func uncover(): #function for uncovering a tile
 			for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
 				tile.explode()
 			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
-			Events.emit_signal("EventTrigger", default) #sets it back to default message
+			Events.emit_signal("EventTrigger", default,null) #sets it back to default message
 			$Numbers.set_frame(9)
 		
 		elif IsMine == false: #if the tile is not a mine, the game proceeds
@@ -134,11 +134,17 @@ func _on_control_gui_input(event):
 	if (event) is InputEventMouseButton: #detects mouse input
 		#Calls uncover function on left click
 		if event.is_action_pressed("LeftClick"):
-			uncover()
+			if StandAlone.ShipPlacement == true:
+				pass
+			else: 
+				uncover()
 		
 		#Calls flag function on right click
 		if event.is_action_pressed("RightClick"):
-			ToggleFlag()
+			if StandAlone.ShipPlacement == true:
+				pass
+			else:
+				ToggleFlag()
 			
 func DebugCovered(): #uncovers or covers tiles for debug purposes
 	if CoveredDebug == false:
@@ -149,10 +155,13 @@ func DebugCovered(): #uncovers or covers tiles for debug purposes
 		$Covered.hide()
 		CoveredDebug = false
 
+func indicated():
+	$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
 
 func _on_control_mouse_entered():
 	$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
-
+	if StandAlone.ShipPlacement == true:
+		Events.emit_signal("NodePosition",self,position)
 
 func _on_control_mouse_exited():
 	$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected

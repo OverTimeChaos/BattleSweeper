@@ -29,6 +29,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.211765, 0.239216, 0.290196, 1)
 
+[node name="Control" type="Control" parent="MineSpace"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Mechanics" type="Node2D" parent="."]
 script = ExtResource("3_mi6uc")
 
@@ -50,3 +58,5 @@ layout_mode = 2
 
 [node name="Debug message" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+
+[connection signal="mouse_entered" from="MineSpace/Control" to="Mechanics" method="_on_control_mouse_entered"]

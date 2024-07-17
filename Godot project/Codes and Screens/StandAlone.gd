@@ -4,6 +4,13 @@ extends Node
 var scoresandnames = {}
 var scores = []
 var names = []
+var carrier = [true,true,true,true,true]
+var battleship = [true,true,true,true]
+var cruiser = [true,true,true]
+var submarine = [true,true,true]
+var destroyer = [true,true]
+var ships = ["Carrier","BattleShip","Cruiser","Submarine","Destroyer"]
+var arrayShips = [carrier,battleship,cruiser,submarine,destroyer]
 var sections 
 #None of these variables outside of the function are necessaryly needed to be predefined to make the game work 
 #However it helps with scablitliy of the game in the future
@@ -23,6 +30,7 @@ var TilesRemain = 0
 #Variables to determine the status of the game/level
 var Complete = false
 var GameOver = false
+var ShipPlacement = false
 
 #Variable used to save scores 
 var PlayerScore = 10000
@@ -73,8 +81,49 @@ func openfile():
 	SortName() #sorts names by biggest scores archive to smallest
 	
 	
-func configShip(ship,part):
-	pass 
+func shipoffersetter(ship,rotate): # a function that gives the offset array of the ships
+	#depending on switch ship and if the rotate is true or false it will give a different 
+	var offsets = []
+	if ship == 0: #carrier
+		if rotate == false:
+			offsets = [
+				(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65,(Vector2.RIGHT) * 130
+			] 
+		elif rotate == true:
+			offsets = [
+				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65,(Vector2.DOWN) * 130
+			] 
+	elif ship == 1: #battleship
+		if rotate == false:
+			offsets = [
+				(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65
+			] 
+		elif rotate == true:
+			offsets = [
+				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65
+			] 
+	elif ship == 2 or 3: #sub or curiser
+		if rotate == false:
+			offsets = [
+				(Vector2.LEFT) * 65,(Vector2.RIGHT) * 65
+			] 
+		elif rotate == true:
+			offsets = [
+				(Vector2.UP) * 65,(Vector2.DOWN) * 65
+			] 
+	elif ship == 4: #destoryer
+		if rotate == false:
+			offsets = [
+				(Vector2.LEFT) * 65
+			] 
+		elif rotate == true:
+			offsets = [
+				(Vector2.UP) * 65
+			] 
+	return offsets
+
+	
+	
 func SortNumber():
 	scores.sort_custom(func(a,b): return a>b) #sorts scores by asscending order
 func SortName():
