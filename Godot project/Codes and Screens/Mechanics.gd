@@ -77,7 +77,11 @@ func shipPlacer(): # allow ships to be placed
 		for node in nodes:
 			node.indicated(true)
 		if Input.is_action_just_pressed("LeftClick"):
+			for node in nodes:
+				node.IsOccupied = true
+				
 			pn += 1
+			
 		elif Input.is_action_just_pressed("RightClick"):
 			if rotate == false:
 				rotate = true
