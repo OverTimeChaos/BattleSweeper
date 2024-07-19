@@ -329,9 +329,10 @@ sprite_frames = SubResource("SpriteFrames_u1qpn")
 
 [node name="Carrier front" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(108.176, 251)
+position = Vector2(104, 241)
 scale = Vector2(0.0402001, 0.0413487)
 sprite_frames = SubResource("SpriteFrames_yone8")
+offset = Vector2(245.15, 227.34)
 
 [node name="Carrier middle 2" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -353,9 +354,10 @@ sprite_frames = SubResource("SpriteFrames_51urj")
 
 [node name="Carrier back" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(104.45, 243)
+position = Vector2(104.45, 240)
 scale = Vector2(0.0544719, 0.056148)
 sprite_frames = SubResource("SpriteFrames_tpc5k")
+offset = Vector2(0, -222.275)
 
 [node name="3 tile ships" type="AnimatedSprite2D" parent="."]
 visible = false
