@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d06cxn84m8nas"]
+[gd_scene load_steps=20 format=3 uid="uid://d06cxn84m8nas"]
 
 [ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
@@ -16,26 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://sq13oucruvmi" path="res://Decals/MineSweeper/cells/WinmineXP/cell8.svg" id="10_hdxr2"]
 [ext_resource type="Texture2D" uid="uid://d3gmn7m7ypi5s" path="res://Decals/TileHover.png" id="11_8vhnq"]
 [ext_resource type="Texture2D" uid="uid://bntwy3tpkdh1u" path="res://Decals/UsedMine.png" id="11_up7g6"]
-[ext_resource type="Texture2D" uid="uid://cyicowghmt8yi" path="res://Decals/Ships/Carrier/ShipCarrierPart1.png" id="17_1kq51"]
-[ext_resource type="Texture2D" uid="uid://w7w524ge17nn" path="res://Decals/Ships/Carrier/ShipCarrierPart2.png" id="18_5os3p"]
-[ext_resource type="Texture2D" uid="uid://des2apityhr54" path="res://Decals/Ships/Carrier/ShipCarrierPart3.png" id="19_pnj5j"]
-[ext_resource type="Texture2D" uid="uid://lei5vo50icdx" path="res://Decals/Ships/Carrier/ShipCarrierPart4.png" id="20_vt4yk"]
-[ext_resource type="Texture2D" uid="uid://cngp6oq4s346g" path="res://Decals/Ships/Carrier/ShipCarrierPart5.png" id="21_tffyf"]
-[ext_resource type="Texture2D" uid="uid://bujf8kogw0fut" path="res://Decals/Ships/BattleShip/ShipBattleshipPart1.png" id="22_ac2pt"]
-[ext_resource type="Texture2D" uid="uid://hrl4rexpayn8" path="res://Decals/Ships/BattleShip/ShipBattleshipPart2.png" id="23_btq3q"]
-[ext_resource type="Texture2D" uid="uid://c0ja6nvcjihkp" path="res://Decals/Ships/BattleShip/ShipBattleshipPart3.png" id="24_nr8op"]
-[ext_resource type="Texture2D" uid="uid://ccwt6xrjyq4h3" path="res://Decals/Ships/BattleShip/ShipBattleshipPart4.png" id="25_wyeti"]
-[ext_resource type="Texture2D" uid="uid://cgdfx88edwwae" path="res://Decals/Ships/Cruiser/ShipCruiserPart1.png" id="26_efle6"]
-[ext_resource type="Texture2D" uid="uid://bgno2r0uhxq8u" path="res://Decals/Ships/Cruiser/ShipCruiserPart2.png" id="27_14mgx"]
-[ext_resource type="Texture2D" uid="uid://cfgsm56ydgp86" path="res://Decals/Ships/Cruiser/ShipCruiserPart3.png" id="28_sleam"]
-[ext_resource type="Texture2D" uid="uid://dh1qy50xgjkbw" path="res://Decals/Ships/Submarine/ShipSubMarinePart1.png" id="29_o4jbj"]
-[ext_resource type="Texture2D" uid="uid://crxpdgomwsbt3" path="res://Decals/Ships/Submarine/ShipSubMarinePart2.png" id="30_sa1s7"]
-[ext_resource type="Texture2D" uid="uid://b10byxp03idel" path="res://Decals/Ships/Submarine/ShipSubMarinePart3.png" id="31_oes31"]
-[ext_resource type="Texture2D" uid="uid://c147kuao1h71h" path="res://Decals/Ships/Destroyer/ShipDestroyerPart1.png" id="32_r21lt"]
-[ext_resource type="Texture2D" uid="uid://dlux7t10ebb2" path="res://Decals/Ships/Destroyer/ShipDestroyerPart2.png" id="33_gsg6i"]
-[ext_resource type="Texture2D" uid="uid://7fyxkyfnhc5c" path="res://Decals/Ships/BattleShip/ShipBattleshipDestoryPart1.png" id="34_2dqnr"]
-[ext_resource type="Texture2D" uid="uid://b2f75pon6ndov" path="res://Decals/Ships/BattleShip/ShipBattleshipDestoryPart2.png" id="35_l2g1m"]
-[ext_resource type="Texture2D" uid="uid://csll0qyb0rg3a" path="res://Decals/Ships/BattleShip/ShipBattleshipDestoryPart3.png" id="36_v0ub6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh2tx"]
 animations = [{
@@ -90,72 +70,6 @@ animations = [{
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5t6pt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_1kq51")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_5os3p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_pnj5j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_vt4yk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_tffyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_ac2pt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_btq3q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_nr8op")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_wyeti")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_efle6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_14mgx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_sleam")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_o4jbj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_sa1s7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_oes31")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_r21lt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_gsg6i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_2dqnr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_l2g1m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_v0ub6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Tile" type="Node2D"]
 script = ExtResource("1_jb1yw")
@@ -200,7 +114,6 @@ texture = ExtResource("6_sqn0l")
 position = Vector2(104, 240)
 scale = Vector2(1.195, 1.195)
 sprite_frames = SubResource("SpriteFrames_5t6pt")
-frame = 19
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
