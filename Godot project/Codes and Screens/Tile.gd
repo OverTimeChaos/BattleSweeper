@@ -143,21 +143,16 @@ func _on_control_gui_input(event):
 				pass
 			else:
 				ToggleFlag()
-			
-func DebugCovered(): #uncovers or covers tiles for debug purposes
-	if CoveredDebug == false:
-		if Covered == true:
-			$Covered.show()
-		CoveredDebug = true
-	else:
-		$Covered.hide()
-		CoveredDebug = false
-
+				
+				
 func indicated(bool):
 	if bool == true:
 		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
 	if bool == false:
 		$Covered.set_frame(0) #As the mouses unohoveres over a tile it changes to indicate that the tile is not being selected
+
+func tilespriter():
+	pass
 
 func _on_control_mouse_entered():
 	if StandAlone.ShipPlacement == true:
@@ -169,3 +164,13 @@ func _on_control_mouse_exited():
 		Events.emit_signal("NodePosition",self,position,false)
 	else:
 		$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected
+		
+		
+func DebugCovered(): #uncovers or covers tiles for debug purposes
+	if CoveredDebug == false:
+		if Covered == true:
+			$Covered.show()
+		CoveredDebug = true
+	else:
+		$Covered.hide()
+		CoveredDebug = false

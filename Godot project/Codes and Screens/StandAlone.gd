@@ -81,42 +81,42 @@ func openfile():
 	SortName() #sorts names by biggest scores archive to smallest
 	
 	
-func shipoffersetter(ship,rotate): # a function that gives the offset array of the ships
+func shipoffersetter(ship,rotating): # a function that gives the offset array of the ships
 	#depending on switch ship and if the rotate is true or false it will give a different 
 	var offsets = []
 	if ship == 0: #carrier
-		if rotate == false:
+		if rotating == false:
 			offsets = [
 				(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65,(Vector2.RIGHT) * 130
 			] 
-		elif rotate == true:
+		elif rotating == true:
 			offsets = [
 				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65,(Vector2.DOWN) * 130
 			] 
 	elif ship == 1: #battleship
-		if rotate == false:
+		if rotating == false:
 			offsets = [
 				(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65
 			] 
-		elif rotate == true:
+		elif rotating == true:
 			offsets = [
 				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65
 			] 
 	elif ship == 2 or 3: #sub or curiser
-		if rotate == false:
+		if rotating == false:
 			offsets = [
 				(Vector2.LEFT) * 65,(Vector2.RIGHT) * 65
 			] 
-		elif rotate == true:
+		elif rotating == true:
 			offsets = [
 				(Vector2.UP) * 65,(Vector2.DOWN) * 65
 			] 
 	elif ship == 4: #destoryer
-		if rotate == false:
+		if rotating == false:
 			offsets = [
 				(Vector2.LEFT) * 65
 			] 
-		elif rotate == true:
+		elif rotating == true:
 			offsets = [
 				(Vector2.UP) * 65
 			] 

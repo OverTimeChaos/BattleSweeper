@@ -12,3 +12,6 @@ Right click to flag tile"
 	if event == "placing":
 		$".".text = "Left click to place " + info +"
 		Right click to rotate"
+	if event == "invalid":
+		$".".text = "Sorry, Invalid placement of ship
+		Please try again"
