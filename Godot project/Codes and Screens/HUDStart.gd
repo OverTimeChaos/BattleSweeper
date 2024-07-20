@@ -1,7 +1,7 @@
 extends CanvasLayer
 var fileexists = FileAccess.file_exists("user://scores.cfg")
 # Called when the node enters the scene tree for the first time.
-func _ready(): #
+func _ready(): 
 	if fileexists == false: #if scores.cfg doesn't exist configs defualt file (usuaully on first boot up of the game)
 		var config = ConfigFile.new()
 		config.set_value("Player1", "player_name", "Player1")

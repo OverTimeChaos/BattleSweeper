@@ -4,16 +4,17 @@ extends Node
 var scoresandnames = {}
 var scores = []
 var names = []
-var carrier = [true,true,true,true,true]
-var battleship = [true,true,true,true]
-var cruiser = [true,true,true]
-var submarine = [true,true,true]
-var destroyer = [true,true]
+var carrier = []
+var battleship = []
+var cruiser = []
+var submarine = []
+var destroyer = []
 var ships = ["Carrier","BattleShip","Cruiser","Submarine","Destroyer"]
 var arrayShips = [carrier,battleship,cruiser,submarine,destroyer]
 var sections 
 #None of these variables outside of the function are necessaryly needed to be predefined to make the game work 
 #However it helps with scablitliy of the game in the future
+
 #Allows assigning the amount of tiles on the play screen 
 var Row = 0 
 var Col = 0
@@ -35,8 +36,13 @@ var ShipPlacement = false
 #Variable used to save scores 
 var PlayerScore = 10000
 
-#Set values
+#Set values at the start
 func BeginGame(): 
+	carrier = [true,true,true,true,true]
+	battleship = [true,true,true,true]
+	cruiser = [true,true,true]
+	submarine = [true,true,true]
+	destroyer = [true,true]
 	Row = 8
 	Col = 8
 	MineNumber = randi_range(4,6)
