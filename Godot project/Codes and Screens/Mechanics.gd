@@ -31,7 +31,7 @@ func _ready():
 	StandAlone.ShipPlacement = true
 	
 func _process(delta):
-	if StandAlone.ShipPlacement == true:
+	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		shipPlacer()
 		
 		
@@ -63,19 +63,19 @@ func shipPlacer(): # allow ships to be placed
 	nodes = [] #array of nodes
 	if pn < 5 :
 		Events.emit_signal("EventTrigger",placing,StandAlone.ships[pn]) 
-		offsets =  StandAlone.shipoffersetter(pn,rotating)
-		nodes.append(noded)
-		for offset in offsets: 
+		offsets =  StandAlone.shipoffersetter(pn,rotating) #grabs offsets
+		nodes.append(noded) 
+		for offset in offsets: #highlights the nodes
 			for tile in tiles:
 				if tile.position  == postioning + offset: 
 					nodes.append(tile)
 		for node in nodes:
 			node.indicated(true)
-		if Input.is_action_just_pressed("LeftClick"):
+		if Input.is_action_just_pressed("LeftClick"): #places the ship
 			for node in nodes:
 				occupiedchecking.append(node.IsOccupied)
 			occupied = occupiedchecking.count(true)
-			if occupied == 0 and  len(occupiedchecking)== len(StandAlone.arrayShips[pn]):
+			if occupied == 0 and  len(occupiedchecking)== len(StandAlone.arrayShips[pn]): #prevents invalid placements
 				for node in nodes:
 					node.IsOccupied = true
 					if pn == 0 or pn == 1:
@@ -85,18 +85,18 @@ func shipPlacer(): # allow ships to be placed
 				pn += 1
 			else:
 				Events.emit_signal("EventTrigger",invalid,null) 
-				StandAlone.ShipPlacement = false
+				StandAlone.interact =  false
 				await get_tree().create_timer(1.0).timeout # allows the player to process the message
-				StandAlone.ShipPlacement = true
+				StandAlone.interact =  true
 				Events.emit_signal("EventTrigger",default,null)
 			
-		elif Input.is_action_just_pressed("RightClick"):
+		elif Input.is_action_just_pressed("RightClick"): #rotates the ship
 			if rotating == false:
 				rotating = true
 			else:
 				rotating = false
 		
-	else:
+	else: # sets the mines
 		Events.emit_signal("EventTrigger",default,null)
 		SetMines() #sets mines after all ships are placed
 		StandAlone.ShipPlacement = false

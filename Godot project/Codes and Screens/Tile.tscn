@@ -101,6 +101,12 @@ position = Vector2(107, 241)
 scale = Vector2(0.0847222, 0.0847222)
 texture = ExtResource("4_6i7ch")
 
+[node name="Flag" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(104, 240)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_sqn0l")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -108,12 +114,6 @@ offset_left = 72.0
 offset_top = 208.0
 offset_right = 136.0
 offset_bottom = 272.0
-
-[node name="Flag" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(104, 240)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_sqn0l")
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]

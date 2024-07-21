@@ -36,6 +36,9 @@ var ShipPlacement = false
 #Variable used to save scores 
 var PlayerScore = 10000
 
+
+#tile variables
+var interact = true
 #Set values at the start
 func BeginGame(): 
 	carrier = [true,true,true,true,true]
@@ -91,42 +94,43 @@ func openfile():
 func shipoffersetter(ship,rotating): # a function that gives the offset array of the ships
 	#depending on switch ship and if the rotate is true or false it will give a different 
 	var offsets = []
-	if ship == 0: #carrier
-		if rotating == false:
-			offsets = [
-				(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65,(Vector2.RIGHT) * 130
-			] 
-		elif rotating == true:
-			offsets = [
-				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65,(Vector2.DOWN) * 130
-			] 
-	elif ship == 1: #battleship
-		if rotating == false:
-			offsets = [
-				(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65
-			] 
-		elif rotating == true:
-			offsets = [
-				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65
-			] 
-	elif ship == 2 or ship == 3: #sub or curiser
-		if rotating == false:
-			offsets = [
-				(Vector2.LEFT) * 65,(Vector2.RIGHT) * 65
-			] 
-		elif rotating == true:
-			offsets = [
-				(Vector2.UP) * 65,(Vector2.DOWN) * 65
-			] 
-	elif ship == 4: #destoryer
-		if rotating == false:
-			offsets = [
-				(Vector2.LEFT) * 65
-			] 
-		elif rotating == true:
-			offsets = [
-				(Vector2.UP) * 65
-			] 
+	match ship:
+		0: #carrier
+			if rotating == false:
+				offsets = [
+					(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65,(Vector2.RIGHT) * 130
+				] 
+			elif rotating == true:
+				offsets = [
+					(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65,(Vector2.DOWN) * 130
+				] 
+		1: #battleship
+			if rotating == false:
+				offsets = [
+					(Vector2.LEFT) * 65,(Vector2.LEFT) * 130,(Vector2.RIGHT) * 65
+				] 
+			elif rotating == true:
+				offsets = [
+					(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65
+				] 
+		2,3: #sub or curiser
+			if rotating == false:
+				offsets = [
+					(Vector2.LEFT) * 65,(Vector2.RIGHT) * 65
+				] 
+			elif rotating == true:
+				offsets = [
+					(Vector2.UP) * 65,(Vector2.DOWN) * 65
+				] 
+		4: #destoryer
+			if rotating == false:
+				offsets = [
+					(Vector2.LEFT) * 65
+				] 
+			elif rotating == true:
+				offsets = [
+					(Vector2.UP) * 65
+				] 
 	return offsets
 
 	

@@ -13,10 +13,10 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://Codes and Screens/LeaderScreen.tscn") 
 		
 func savefile():
-			#if $Bottom/LineEdit.get_text() == " ":
-			#$Bottom/error.text = "Please Enter name"
-			#await get_tree().create_timer(1.0).timeout
-			#$Bottom/error.text = ""
+			if $Bottom/LineEdit.get_text() == "HUD":
+				$Bottom/error.text = "Please Enter name"
+				await get_tree().create_timer(1.0).timeout
+				$Bottom/error.text = ""
 			cutoff = StandAlone.scores[4]
 			if StandAlone.PlayerScore < cutoff: #won't add player to score file if player score is under the lowest score
 				$Bottom/error.text = "Not Saved

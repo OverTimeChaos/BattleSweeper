@@ -19,27 +19,28 @@ func _process(delta):
 			$"VBoxContainer/Debug message".text = "Cleared"
 			await get_tree().create_timer(1.0).timeout
 			$"VBoxContainer/Debug message".text = ""
-		if command == "COVER":  #Hides frames when "cover" is entered
-			$Mechanics.Debug("cover")
-			command = ""  # clears "command" variable so that the same command doesn't play again
-		if command == "LEVEL":
-			$Mechanics.Debug("level") #completes the levels
-			command = ""
-		if command == "GAME": # ends the game no matter what condition the ships are
-			$Mechanics.Debug("game")
-			command = ""
-		if command == "MINE":
-			$Mechanics.Debug ("mines") # sets the mines no matter what phase it is
-			command = ""
-			$"VBoxContainer/Debug message".text = "Mines set"
-			await get_tree().create_timer(1.0).timeout
-			$"VBoxContainer/Debug message".text = ""
-		if command == "ADD": # adds scores
-			StandAlone.PlayerScore += 100
-			command = ""
-			$"VBoxContainer/Debug message".text = "Added"
-			await get_tree().create_timer(1.0).timeout
-			$"VBoxContainer/Debug message".text = ""
+		match command:
+			"COVER":  #Hides frames when "cover" is entered
+				$Mechanics.Debug("cover")
+				command = ""  # clears "command" variable so that the same command doesn't play again
+			"LEVEL":
+				$Mechanics.Debug("level") #completes the levels
+				command = ""
+			"GAME": # ends the game no matter what condition the ships are
+				$Mechanics.Debug("game")
+				command = ""
+			"MINE":
+				$Mechanics.Debug ("mines") # sets the mines no matter what phase it is
+				command = ""
+				$"VBoxContainer/Debug message".text = "Mines set"
+				await get_tree().create_timer(1.0).timeout
+				$"VBoxContainer/Debug message".text = ""
+			"ADD": # adds scores
+				StandAlone.PlayerScore += 100
+				command = ""
+				$"VBoxContainer/Debug message".text = "Added"
+				await get_tree().create_timer(1.0).timeout
+				$"VBoxContainer/Debug message".text = ""
 			
 
 # Get pressed keys

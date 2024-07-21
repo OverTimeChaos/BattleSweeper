@@ -155,14 +155,14 @@ func tilespriter():
 	pass
 
 func _on_control_mouse_entered():
-	if StandAlone.ShipPlacement == true:
+	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		Events.emit_signal("NodePosition",self,position)
-	else:
+	elif StandAlone.ShipPlacement == false:
 		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
 func _on_control_mouse_exited():
-	if StandAlone.ShipPlacement == true:
+	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		Events.emit_signal("NodePosition",self,position)
-	else:
+	elif StandAlone.ShipPlacement == false:
 		$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected
 		
 		
