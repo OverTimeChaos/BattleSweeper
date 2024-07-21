@@ -65,11 +65,11 @@ text = "Back"
 [node name="Credits" type="Label" parent="."]
 offset_left = 47.0
 offset_top = 195.0
-offset_right = 626.0
-offset_bottom = 251.0
+offset_right = 624.0
+offset_bottom = 240.0
 theme = ExtResource("5_m81b6")
 theme_override_colors/font_color = Color(0.548266, 0.710738, 0.927369, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 46
+theme_override_font_sizes/font_size = 36
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
