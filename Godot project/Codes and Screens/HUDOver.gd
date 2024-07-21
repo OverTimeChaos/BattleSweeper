@@ -1,5 +1,6 @@
 extends CanvasLayer
 var cutoff = 0
+var passed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,10 +11,11 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("Enter"):
 		await savefile() #saves the score of the player
-		get_tree().change_scene_to_file("res://Codes and Screens/LeaderScreen.tscn") 
+		if passed == true:
+			get_tree().change_scene_to_file("res://Codes and Screens/LeaderScreen.tscn") 
 		
 func savefile():
-			if $Bottom/LineEdit.get_text() == "HUD":
+			if passed == false:
 				$Bottom/error.text = "Please Enter name"
 				await get_tree().create_timer(1.0).timeout
 				$Bottom/error.text = ""
@@ -28,6 +30,8 @@ func savefile():
 		#Swtiches to the leader board screen
 func _on_line_edit_text_submitted(new_text):
 		name = new_text #grabs the enter name
+func _on_line_edit_text_changed(new_text):
+	passed = true
 
 func savingfile():
 	var config = ConfigFile.new()
@@ -53,3 +57,6 @@ func savingfile():
 	config.set_value("Player5", "player_name", StandAlone.names[4])
 	config.set_value("Player5", "score", StandAlone.scores[4])
 	config.save("user://scores.cfg")
+
+
+
