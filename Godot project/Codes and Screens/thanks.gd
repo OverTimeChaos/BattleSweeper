@@ -7,8 +7,10 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"Credits".text= "Special Thanks
-Myle
+myle21
 Toxic Monster
+kukiric
+mindfaq
 The Godot Cafe Discord Community
 Sprites
 Lowder2

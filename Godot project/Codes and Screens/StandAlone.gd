@@ -3,7 +3,7 @@ extends Node
 #score arrays and dictionaries
 var scoresandnames = {}
 var scores = []
-var names = []
+var usernames = []
 var carrier = []
 var battleship = []
 var cruiser = []
@@ -34,7 +34,7 @@ var GameOver = false
 var ShipPlacement = false
 
 #Variable used to save scores 
-var PlayerScore = 10000
+var PlayerScore = 10001
 
 
 #tile variables
@@ -140,7 +140,7 @@ func SortNumber():
 func SortName():
 	var sorted_list = scoresandnames.keys()
 	sorted_list.sort_custom(func(a,b): return scoresandnames[a] > scoresandnames[b]) #sorts names by score
-	names = sorted_list
+	usernames = sorted_list
 	
 func Sortnew(): #sorts with new score and makes a new dictionary 
 	SortNumber()
