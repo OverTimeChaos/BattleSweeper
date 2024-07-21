@@ -10,7 +10,7 @@ var cruiser = []
 var submarine = []
 var destroyer = []
 var ships = ["Carrier","BattleShip","Cruiser","Submarine","Destroyer"]
-var arrayShips = [carrier,battleship,cruiser,submarine,destroyer]
+var arrayShips = []
 var sections 
 #None of these variables outside of the function are necessaryly needed to be predefined to make the game work 
 #However it helps with scablitliy of the game in the future
@@ -43,6 +43,7 @@ func BeginGame():
 	cruiser = [true,true,true]
 	submarine = [true,true,true]
 	destroyer = [true,true]
+	arrayShips = [carrier,battleship,cruiser,submarine,destroyer]
 	Row = 8
 	Col = 8
 	MineNumber = randi_range(4,6)
@@ -108,7 +109,7 @@ func shipoffersetter(ship,rotating): # a function that gives the offset array of
 			offsets = [
 				(Vector2.UP) * 65,(Vector2.UP) * 130,(Vector2.DOWN) * 65
 			] 
-	elif ship == 2 or 3: #sub or curiser
+	elif ship == 2 or ship == 3: #sub or curiser
 		if rotating == false:
 			offsets = [
 				(Vector2.LEFT) * 65,(Vector2.RIGHT) * 65

@@ -5,6 +5,7 @@ var tiles= []
 #Variables for node info
 var noded =""
 var postioning =[0,0] #Dummary value to avoid errors
+var nodes = [] #array of nodes
 # ship info
 var occupied  = 0
 var hovered = false
@@ -47,16 +48,20 @@ func SetMines():
 			
 			
 			
-func Nodepostioned(node,postion,hover): #allows the nodes infromation to be passed 
+func Nodepostioned(node,postion): #allows the nodes infromation to be passed 
 	noded = node
 	postioning = postion
-	hovered = hover
+	#hovered = hover
 	
 func shipPlacer(): # allow ships to be placed
+	
+	for node in nodes:
+		node.indicated(false) #defualt sets spirtes to not indicated 
+		
 	var offsets = []
 	var occupiedchecking = [] # checks for if the occupied value is on a tile
-	var nodes = [] #array of nodes
-	if pn < 5 and hovered == true :
+	nodes = [] #array of nodes
+	if pn < 5 :
 		Events.emit_signal("EventTrigger",placing,StandAlone.ships[pn]) 
 		offsets =  StandAlone.shipoffersetter(pn,rotating)
 		nodes.append(noded)
@@ -70,14 +75,13 @@ func shipPlacer(): # allow ships to be placed
 			for node in nodes:
 				occupiedchecking.append(node.IsOccupied)
 			occupied = occupiedchecking.count(true)
-			print (occupiedchecking)
-			print (len(occupiedchecking))
-			print (occupied)
-			if occupied == 0 and  len(occupiedchecking)== len (StandAlone.arrayShips[pn]):
+			if occupied == 0 and  len(occupiedchecking)== len(StandAlone.arrayShips[pn]):
 				for node in nodes:
 					node.IsOccupied = true
-					#if pn == 1 or 2:
-						#spriteasigner()
+					if pn == 0 or pn == 1:
+						spriteasigner(true)
+					else:
+						spriteasigner(false)
 				pn += 1
 			else:
 				Events.emit_signal("EventTrigger",invalid,null) 
@@ -91,25 +95,19 @@ func shipPlacer(): # allow ships to be placed
 				rotating = true
 			else:
 				rotating = false
-	elif hovered == false: #changes sprites of affected nodes
-		offsets =  StandAlone.shipoffersetter(pn,rotating)
-		nodes.append(noded)
-		for offset in offsets: 
-			for tile in tiles:
-				if tile.position  == postioning + offset: 
-					nodes.append(tile)
-		for node in nodes:
-			node.indicated(false)
+		
 	else:
 		Events.emit_signal("EventTrigger",default,null)
 		SetMines() #sets mines after all ships are placed
 		StandAlone.ShipPlacement = false
 		
 
-func spriteasigner():
-	pass
-	
-func partasigner():
+func spriteasigner(parts):
+	#if parts == true:
+		#
+	#if parts == false:
+	#
+#func partasigner(number):
 	pass
 
 

@@ -9,21 +9,25 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("Enter"):
-		savefile() #saves the score of the player
+		await savefile() #saves the score of the player
 		get_tree().change_scene_to_file("res://Codes and Screens/LeaderScreen.tscn") 
 		
 func savefile():
-	cutoff = StandAlone.scores[4]
-	#sortfile() #sorts the files
-	if StandAlone.PlayerScore < cutoff: #won't add player to score file if player score is under the lowest score
-		$Bottom/notsave.show()
-		await get_tree().create_timer(1.0).timeout
-		pass 
-	else:
-		savingfile()
-	#Swtiches to the leader board screen
+			#if $Bottom/LineEdit.get_text() == " ":
+			#$Bottom/error.text = "Please Enter name"
+			#await get_tree().create_timer(1.0).timeout
+			#$Bottom/error.text = ""
+			cutoff = StandAlone.scores[4]
+			if StandAlone.PlayerScore < cutoff: #won't add player to score file if player score is under the lowest score
+				$Bottom/error.text = "Not Saved
+		Score lower then 5th highest score"
+				await get_tree().create_timer(1.0).timeout
+				pass 
+			else:
+				savingfile()
+		#Swtiches to the leader board screen
 func _on_line_edit_text_submitted(new_text):
-	name = new_text #grabs the enter name
+		name = new_text #grabs the enter name
 
 func savingfile():
 	var config = ConfigFile.new()

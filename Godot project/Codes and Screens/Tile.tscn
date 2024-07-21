@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://d06cxn84m8nas"]
+[gd_scene load_steps=19 format=3 uid="uid://d06cxn84m8nas"]
 
 [ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
@@ -16,44 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://sq13oucruvmi" path="res://Decals/MineSweeper/cells/WinmineXP/cell8.svg" id="10_hdxr2"]
 [ext_resource type="Texture2D" uid="uid://d3gmn7m7ypi5s" path="res://Decals/TileHover.png" id="11_8vhnq"]
 [ext_resource type="Texture2D" uid="uid://bntwy3tpkdh1u" path="res://Decals/UsedMine.png" id="11_up7g6"]
-[ext_resource type="Texture2D" uid="uid://c3pnu74i04b8k" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart1_scaled_20x_pngcrushed.png" id="17_r4lvi"]
-[ext_resource type="Texture2D" uid="uid://wgbli4t3wxlo" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart2_scaled_20x_pngcrushed.png" id="18_3pkcx"]
-[ext_resource type="Texture2D" uid="uid://boglpl7mu1y1l" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart3_scaled_20x_pngcrushed.png" id="19_813rk"]
-[ext_resource type="Texture2D" uid="uid://b6b8d464yh3do" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart4_scaled_20x_pngcrushed.png" id="20_cofgp"]
-[ext_resource type="Texture2D" uid="uid://0o8l65xcceh5" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart1_scaled_20x_pngcrushed.png" id="21_oowsp"]
-[ext_resource type="Texture2D" uid="uid://dfuv532cjq23q" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart2_scaled_20x_pngcrushed.png" id="22_alri8"]
-[ext_resource type="Texture2D" uid="uid://cf164a3qasj7a" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart3_scaled_20x_pngcrushed.png" id="23_wrrxp"]
-[ext_resource type="Texture2D" uid="uid://bgxmf0wuormxv" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart4_scaled_20x_pngcrushed.png" id="24_hrcpe"]
-[ext_resource type="Texture2D" uid="uid://cydckmbvxxkqi" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart1_scaled_31x_pngcrushed.png" id="25_dd1b4"]
-[ext_resource type="Texture2D" uid="uid://45oedy2jol0e" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart1_scaled_31x_pngcrushed.png" id="26_3pcme"]
-[ext_resource type="Texture2D" uid="uid://dwf4hwv1atngb" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart2_scaled_20x_pngcrushed.png" id="27_oyy6w"]
-[ext_resource type="Texture2D" uid="uid://dgxvrpscfs14f" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart2_scaled_20x_pngcrushed.png" id="28_l4gsp"]
-[ext_resource type="Texture2D" uid="uid://chnhan4o5ubkc" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart3_scaled_20x_pngcrushed.png" id="29_8by31"]
-[ext_resource type="Texture2D" uid="uid://do4mauntb1nhq" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart3_scaled_20x_pngcrushed.png" id="30_x4q1n"]
-[ext_resource type="Texture2D" uid="uid://dvkkgcq44ntc5" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart4_scaled_20x_pngcrushed.png" id="31_uc7j3"]
-[ext_resource type="Texture2D" uid="uid://b5nchr84lay8a" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart4_scaled_20x_pngcrushed.png" id="32_8sn6w"]
-[ext_resource type="Texture2D" uid="uid://c0a7f5r580frp" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart5_scaled_24x_pngcrushed.png" id="33_n6yf7"]
-[ext_resource type="Texture2D" uid="uid://dx2u632t721im" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart5_scaled_24x_pngcrushed.png" id="34_qdjte"]
-[ext_resource type="Texture2D" uid="uid://bacsajsx7bkq6" path="res://Decals/Resized/Ships/Crusier/ShipCruiserBuilt_scaled_10x_pngcrushed.png" id="35_sfyo7"]
-[ext_resource type="Texture2D" uid="uid://dp7gqbra1ocfu" path="res://Decals/Resized/Ships/Crusier/0,0,1_scaled_10x_pngcrushed.png" id="36_1hqod"]
-[ext_resource type="Texture2D" uid="uid://dre7m5u2j0xnm" path="res://Decals/Resized/Ships/Crusier/0,1,0_scaled_10x_pngcrushed.png" id="37_7qug3"]
-[ext_resource type="Texture2D" uid="uid://cf5igfp84q7wk" path="res://Decals/Resized/Ships/Crusier/0,1,1_scaled_10x_pngcrushed.png" id="38_h65wt"]
-[ext_resource type="Texture2D" uid="uid://bvj6nh143u4ks" path="res://Decals/Resized/Ships/Crusier/1,0,0_scaled_10x_pngcrushed.png" id="39_53dsi"]
-[ext_resource type="Texture2D" uid="uid://dmhtm62l5qdqj" path="res://Decals/Resized/Ships/Crusier/1,0,1_scaled_10x_pngcrushed.png" id="40_menod"]
-[ext_resource type="Texture2D" uid="uid://bo6mo48omwjgs" path="res://Decals/Resized/Ships/Crusier/1,1,0_scaled_10x_pngcrushed.png" id="41_bbtar"]
-[ext_resource type="Texture2D" uid="uid://du0dbayurmf2p" path="res://Decals/Resized/Ships/Crusier/ShipCruiserDestory_scaled_10x_pngcrushed.png" id="42_bdba8"]
-[ext_resource type="Texture2D" uid="uid://crs5bg3kp14cx" path="res://Decals/Resized/Ships/Submarine/ShipSubMarineBuilt_scaled_10x_pngcrushed.png" id="43_iw5ay"]
-[ext_resource type="Texture2D" uid="uid://b2bctm0yxwhbh" path="res://Decals/Resized/Ships/Submarine/0,0,1_scaled_10x_pngcrushed.png" id="43_ss7fv"]
-[ext_resource type="Texture2D" uid="uid://cnop0sarkr456" path="res://Decals/Resized/Ships/Submarine/0,1,0_scaled_10x_pngcrushed.png" id="44_k74e5"]
-[ext_resource type="Texture2D" uid="uid://bgm8mbjimfh78" path="res://Decals/Resized/Ships/Submarine/0,1,1_scaled_10x_pngcrushed.png" id="45_x5vav"]
-[ext_resource type="Texture2D" uid="uid://dh2iisjjl0ksq" path="res://Decals/Resized/Ships/Submarine/1,0,0_scaled_10x_pngcrushed.png" id="46_kermp"]
-[ext_resource type="Texture2D" uid="uid://r0mbxuy7xkpk" path="res://Decals/Resized/Ships/Submarine/1,0,1_scaled_10x_pngcrushed.png" id="47_23aul"]
-[ext_resource type="Texture2D" uid="uid://dr5abdnucuts3" path="res://Decals/Resized/Ships/Submarine/1,1,0_scaled_10x_pngcrushed.png" id="48_1t8gj"]
-[ext_resource type="Texture2D" uid="uid://b1fh25xex1jl2" path="res://Decals/Resized/Ships/Destoryer/ShipDestroyerBuilt_scaled_10x_pngcrushed.png" id="49_fxqwi"]
-[ext_resource type="Texture2D" uid="uid://h5jf7oh16l6s" path="res://Decals/Resized/Ships/Destoryer/0,1_scaled_10x_pngcrushed.png" id="50_f0jdo"]
-[ext_resource type="Texture2D" uid="uid://dju384to020m8" path="res://Decals/Resized/Ships/Submarine/ShipSubMarineDestory_scaled_10x_pngcrushed.png" id="50_qocgc"]
-[ext_resource type="Texture2D" uid="uid://bxnup52h8mnw0" path="res://Decals/Resized/Ships/Destoryer/1,0_scaled_10x_pngcrushed.png" id="51_tlqxo"]
-[ext_resource type="Texture2D" uid="uid://fcs6c7cmhpyr" path="res://Decals/Resized/Ships/Destoryer/ShipDestroyerDestory_scaled_10x_pngcrushed.png" id="52_khds4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh2tx"]
 animations = [{
@@ -107,189 +69,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_u1qpn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_r4lvi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_3pkcx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_813rk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_cofgp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_oowsp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_alri8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_wrrxp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_hrcpe")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yone8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("25_dd1b4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_3pcme")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_t2xdx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("27_oyy6w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_l4gsp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yhof8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("29_8by31")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_x4q1n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_51urj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("31_uc7j3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_8sn6w")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tpc5k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("33_n6yf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_qdjte")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0gfp8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("35_sfyo7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_1hqod")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_7qug3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_h65wt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_53dsi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_menod")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_bbtar")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_bdba8")
-}],
-"loop": true,
-"name": &"Cursier",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("43_iw5ay")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_ss7fv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_k74e5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_x5vav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_kermp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_23aul")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_1t8gj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_qocgc")
-}],
-"loop": true,
-"name": &"Sub",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_733ud"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("49_fxqwi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_f0jdo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51_tlqxo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("52_khds4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Tile" type="Node2D"]
 script = ExtResource("1_jb1yw")
 
@@ -305,6 +84,13 @@ scale = Vector2(0.225, 0.225)
 texture = ExtResource("3_pck60")
 
 [node name="Covered" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_dsl7g")
+offset = Vector2(260, 600)
+
+[node name="Covered2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -65)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_dsl7g")
 offset = Vector2(260, 600)
@@ -328,60 +114,6 @@ visible = false
 position = Vector2(104, 240)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_sqn0l")
-
-[node name="Battleship" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(103, 240.287)
-scale = Vector2(0.0601293, 0.0620914)
-sprite_frames = SubResource("SpriteFrames_u1qpn")
-
-[node name="Carrier front" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(104, 241)
-scale = Vector2(0.0402001, 0.0413487)
-sprite_frames = SubResource("SpriteFrames_yone8")
-offset = Vector2(245.15, 227.34)
-
-[node name="Carrier middle 2" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(100, 239)
-scale = Vector2(0.0641875, 0.0623953)
-sprite_frames = SubResource("SpriteFrames_t2xdx")
-
-[node name="Carrier middle 3" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(103, 240.287)
-scale = Vector2(0.065, 0.067)
-sprite_frames = SubResource("SpriteFrames_yhof8")
-
-[node name="Carrier middle 4" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(109, 240)
-scale = Vector2(0.065, 0.067)
-sprite_frames = SubResource("SpriteFrames_51urj")
-
-[node name="Carrier back" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(104.45, 240)
-scale = Vector2(0.0544719, 0.056148)
-sprite_frames = SubResource("SpriteFrames_tpc5k")
-offset = Vector2(0, -222.275)
-
-[node name="3 tile ships" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(103, 238.49)
-rotation = -1.5708
-scale = Vector2(0.13, 0.134)
-sprite_frames = SubResource("SpriteFrames_0gfp8")
-animation = &"Sub"
-
-[node name="2 tile ships" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(103, 241)
-scale = Vector2(0.12, 0.124)
-sprite_frames = SubResource("SpriteFrames_733ud")
-frame = 1
-offset = Vector2(0, -253.885)
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]

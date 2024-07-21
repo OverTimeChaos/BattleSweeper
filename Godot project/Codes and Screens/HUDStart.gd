@@ -16,12 +16,6 @@ func _ready():
 		config.set_value("Player5", "score", 0)
 		config.save("user://scores.cfg")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
 func _on_quit_button_pressed():
 	get_tree().quit() #quits the game
 	
@@ -29,3 +23,7 @@ func _on_quit_button_pressed():
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Codes and Screens/MainGame.tscn") #Swtiches to the main game screen
 	StandAlone.BeginGame() #Resets values and begins the game anew
+
+
+func _on_credits_pressed(): #credits for all the help
+	get_tree().change_scene_to_file("res://Codes and Screens/Credits.tscn")
