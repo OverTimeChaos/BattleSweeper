@@ -115,28 +115,23 @@ offset_bottom = 272.0
 
 [node name="Carrier" parent="." instance=ExtResource("17_t80g1")]
 visible = false
-offset = Vector2(100.12, 242.42)
-transform = Transform2D(1, 0, 0, 1, 100.12, 242.42)
+position = Vector2(100.12, 242.42)
 
 [node name="BattleShip" parent="." instance=ExtResource("18_256f5")]
 visible = false
-offset = Vector2(67.655, 237.835)
-transform = Transform2D(1, 0, 0, 1, 67.655, 237.835)
+position = Vector2(58.265, 237.705)
 
 [node name="Cursier" parent="." instance=ExtResource("19_umk8m")]
 visible = false
-offset = Vector2(102.695, 238.02)
-transform = Transform2D(1, 0, 0, 1, 102.695, 238.02)
+position = Vector2(102.695, 238.02)
 
 [node name="Submarine" parent="." instance=ExtResource("20_yg3f2")]
 visible = false
-offset = Vector2(105.29, 238.945)
-transform = Transform2D(1, 0, 0, 1, 105.29, 238.945)
+position = Vector2(105.29, 238.945)
 
 [node name="Destoryer" parent="." instance=ExtResource("21_nae0y")]
 visible = false
-offset = Vector2(73.67, 238.955)
-transform = Transform2D(1, 0, 0, 1, 73.67, 238.955)
+position = Vector2(105, 205)
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
