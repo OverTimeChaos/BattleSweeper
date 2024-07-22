@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvsy554mso3l2"]
+
+[ext_resource type="Texture2D" uid="uid://cfyn63525ncdu" path="res://Decals/Resized/Ships/Submarine/ShipSubMarineDestoryPart1_scaled_20x_pngcrushed.png" id="1_aav0s"]
+[ext_resource type="Script" path="res://Codes and Screens/Subrmaine.gd" id="1_u0xtg"]
+[ext_resource type="Texture2D" uid="uid://bs3ndd830q63w" path="res://Decals/Resized/Ships/Submarine/ShipSubMarinePart1_scaled_20x_pngcrushed.png" id="2_7mdxu"]
+[ext_resource type="Texture2D" uid="uid://bwosck16fjkf5" path="res://Decals/Resized/Ships/Submarine/ShipSubMarineDestoryPart2_scaled_20x_pngcrushed.png" id="3_rkr51"]
+[ext_resource type="Texture2D" uid="uid://cvv648xd2o7m7" path="res://Decals/Resized/Ships/Submarine/ShipSubMarinePart2_scaled_20x_pngcrushed.png" id="4_xi2ef"]
+[ext_resource type="Texture2D" uid="uid://b4o6t2jgecqpq" path="res://Decals/Resized/Ships/Submarine/ShipSubMarineDestoryPart3_scaled_20x_pngcrushed.png" id="5_axyyr"]
+[ext_resource type="Texture2D" uid="uid://dq0bbiyb2tugb" path="res://Decals/Resized/Ships/Submarine/ShipSubMarinePart3_scaled_20x_pngcrushed.png" id="6_5n1hk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jj7qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aav0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7mdxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hs0dd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rkr51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xi2ef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w84j2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_axyyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5n1hk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Submarine" type="CanvasLayer"]
+script = ExtResource("1_u0xtg")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -1.5708
+scale = Vector2(0.065, 0.065)
+
+[node name="Front" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, -940)
+sprite_frames = SubResource("SpriteFrames_jj7qf")
+
+[node name="Middle" type="AnimatedSprite2D" parent="BoxContainer"]
+sprite_frames = SubResource("SpriteFrames_hs0dd")
+
+[node name="Back" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, 960)
+sprite_frames = SubResource("SpriteFrames_w84j2")

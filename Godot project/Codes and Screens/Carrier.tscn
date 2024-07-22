@@ -1,3 +1,112 @@
-[gd_scene format=3 uid="uid://lyeenkqpg2wb"]
+[gd_scene load_steps=17 format=3 uid="uid://lyeenkqpg2wb"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[ext_resource type="Script" path="res://Codes and Screens/Carrier.gd" id="1_hpd7m"]
+[ext_resource type="Texture2D" uid="uid://55lgsi0dpvtd" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart1_scaled_20x_pngcrushed.png" id="1_vgw5e"]
+[ext_resource type="Texture2D" uid="uid://b7wyrcca82vhx" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart1_scaled_20x_pngcrushed.png" id="2_lx1gd"]
+[ext_resource type="Texture2D" uid="uid://cvnhcv43d3lqg" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart2_scaled_20x_pngcrushed.png" id="3_og7mf"]
+[ext_resource type="Texture2D" uid="uid://i07f7m7q7h6e" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart2_scaled_20x_pngcrushed.png" id="4_4jf72"]
+[ext_resource type="Texture2D" uid="uid://bpv5dxo3ajnmf" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart3_scaled_20x_pngcrushed.png" id="5_tilo4"]
+[ext_resource type="Texture2D" uid="uid://b4f4kba2khjks" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart3_scaled_20x_pngcrushed.png" id="6_fruty"]
+[ext_resource type="Texture2D" uid="uid://cpf8fmwise5sn" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart4_scaled_20x_pngcrushed.png" id="7_rpiph"]
+[ext_resource type="Texture2D" uid="uid://dpd46np5n6fqv" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart4_scaled_20x_pngcrushed.png" id="8_5d6kx"]
+[ext_resource type="Texture2D" uid="uid://du6yhwmdencx8" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart5_scaled_20x_pngcrushed.png" id="9_0funs"]
+[ext_resource type="Texture2D" uid="uid://c2qm8mn3io2b1" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart5_scaled_20x_pngcrushed.png" id="10_hppo2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix14u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vgw5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lx1gd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ca3ua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_og7mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4jf72")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0x5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tilo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fruty")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mwto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_rpiph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5d6kx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hebjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0funs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hppo2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Carrier" type="CanvasLayer"]
+script = ExtResource("1_hpd7m")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -1.5708
+scale = Vector2(0.075, 0.075)
+
+[node name="Front" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, -1609)
+sprite_frames = SubResource("SpriteFrames_ix14u")
+
+[node name="Middle" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, -849)
+sprite_frames = SubResource("SpriteFrames_ca3ua")
+
+[node name="Middle2" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, 4.76837e-07)
+sprite_frames = SubResource("SpriteFrames_f0x5x")
+
+[node name="Middle3" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, 840)
+sprite_frames = SubResource("SpriteFrames_0mwto")
+
+[node name="Back" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, 1550)
+sprite_frames = SubResource("SpriteFrames_hebjq")

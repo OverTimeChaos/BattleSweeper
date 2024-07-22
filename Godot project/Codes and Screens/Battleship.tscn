@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://d30mh08pnoqsc"]
+
+[ext_resource type="Script" path="res://Codes and Screens/Battleship.gd" id="1_4mmvm"]
+[ext_resource type="Texture2D" uid="uid://bkcqkvjre4lv2" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart1_scaled_20x_pngcrushed.png" id="1_cle53"]
+[ext_resource type="Texture2D" uid="uid://ce8g0pb6y5php" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart1_scaled_20x_pngcrushed.png" id="2_glos8"]
+[ext_resource type="Texture2D" uid="uid://1bunmr4v0qyj" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart2_scaled_20x_pngcrushed.png" id="3_rcynj"]
+[ext_resource type="Texture2D" uid="uid://csgycw4b2hhgf" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart2_scaled_20x_pngcrushed.png" id="4_s54es"]
+[ext_resource type="Texture2D" uid="uid://csuacrbwofux5" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart3_scaled_20x_pngcrushed.png" id="5_6vfxt"]
+[ext_resource type="Texture2D" uid="uid://i424mqxekwnw" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart3_scaled_20x_pngcrushed.png" id="6_44gn6"]
+[ext_resource type="Texture2D" uid="uid://mgguesqju432" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart4_scaled_20x_pngcrushed.png" id="7_vb4jm"]
+[ext_resource type="Texture2D" uid="uid://b7jo0c3rf52cp" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart4_scaled_20x_pngcrushed.png" id="8_kwi83"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0nbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cle53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_glos8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lkg0o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rcynj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s54es")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftrab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6vfxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_44gn6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5ci1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vb4jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kwi83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BattleShip" type="CanvasLayer"]
+script = ExtResource("1_4mmvm")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -1.5708
+scale = Vector2(0.06, 0.06)
+
+[node name="Front" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, -1560)
+sprite_frames = SubResource("SpriteFrames_e0nbv")
+
+[node name="Middle" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, -520)
+sprite_frames = SubResource("SpriteFrames_lkg0o")
+
+[node name="Middle2" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, 530)
+sprite_frames = SubResource("SpriteFrames_ftrab")
+
+[node name="Back" type="AnimatedSprite2D" parent="BoxContainer"]
+position = Vector2(0, 1579)
+sprite_frames = SubResource("SpriteFrames_e5ci1")

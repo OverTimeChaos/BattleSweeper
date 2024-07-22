@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d06cxn84m8nas"]
+[gd_scene load_steps=24 format=3 uid="uid://d06cxn84m8nas"]
 
 [ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://sq13oucruvmi" path="res://Decals/MineSweeper/cells/WinmineXP/cell8.svg" id="10_hdxr2"]
 [ext_resource type="Texture2D" uid="uid://d3gmn7m7ypi5s" path="res://Decals/TileHover.png" id="11_8vhnq"]
 [ext_resource type="Texture2D" uid="uid://bntwy3tpkdh1u" path="res://Decals/UsedMine.png" id="11_up7g6"]
+[ext_resource type="PackedScene" uid="uid://lyeenkqpg2wb" path="res://Codes and Screens/Carrier.tscn" id="17_t80g1"]
+[ext_resource type="PackedScene" uid="uid://d30mh08pnoqsc" path="res://Codes and Screens/Battleship.tscn" id="18_256f5"]
+[ext_resource type="PackedScene" uid="uid://x4fkns0lhn4" path="res://Codes and Screens/Cursier.tscn" id="19_umk8m"]
+[ext_resource type="PackedScene" uid="uid://dvsy554mso3l2" path="res://Codes and Screens/Subrmaine.tscn" id="20_yg3f2"]
+[ext_resource type="PackedScene" uid="uid://dxx54ghr1bqre" path="res://Codes and Screens/Destoryer.tscn" id="21_nae0y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh2tx"]
 animations = [{
@@ -88,13 +93,6 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_dsl7g")
 offset = Vector2(260, 600)
 
-[node name="Covered2" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, -65)
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_dsl7g")
-offset = Vector2(260, 600)
-
 [node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(107, 241)
@@ -114,6 +112,31 @@ offset_left = 72.0
 offset_top = 208.0
 offset_right = 136.0
 offset_bottom = 272.0
+
+[node name="Carrier" parent="." instance=ExtResource("17_t80g1")]
+visible = false
+offset = Vector2(100.12, 242.42)
+transform = Transform2D(1, 0, 0, 1, 100.12, 242.42)
+
+[node name="BattleShip" parent="." instance=ExtResource("18_256f5")]
+visible = false
+offset = Vector2(67.655, 237.835)
+transform = Transform2D(1, 0, 0, 1, 67.655, 237.835)
+
+[node name="Cursier" parent="." instance=ExtResource("19_umk8m")]
+visible = false
+offset = Vector2(102.695, 238.02)
+transform = Transform2D(1, 0, 0, 1, 102.695, 238.02)
+
+[node name="Submarine" parent="." instance=ExtResource("20_yg3f2")]
+visible = false
+offset = Vector2(105.29, 238.945)
+transform = Transform2D(1, 0, 0, 1, 105.29, 238.945)
+
+[node name="Destoryer" parent="." instance=ExtResource("21_nae0y")]
+visible = false
+offset = Vector2(73.67, 238.955)
+transform = Transform2D(1, 0, 0, 1, 73.67, 238.955)
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]

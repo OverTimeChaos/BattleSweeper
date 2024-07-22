@@ -41,11 +41,11 @@ var PlayerScore = 10001
 var interact = true
 #Set values at the start
 func BeginGame(): 
-	carrier = [true,true,true,true,true]
-	battleship = [true,true,true,true]
-	cruiser = [true,true,true]
-	submarine = [true,true,true]
-	destroyer = [true,true]
+	carrier = [1,1,1,1,1]
+	battleship = [1,1,1,1]
+	cruiser = [1,1,1]
+	submarine = [1,1,1]
+	destroyer = [1,1]
 	arrayShips = [carrier,battleship,cruiser,submarine,destroyer]
 	Row = 8
 	Col = 8

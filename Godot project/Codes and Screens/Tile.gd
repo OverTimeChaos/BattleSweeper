@@ -151,8 +151,31 @@ func indicated(bool):
 	if bool == false:
 		$Covered.set_frame(0) #As the mouses unohoveres over a tile it changes to indicate that the tile is not being selected
 
-func tilespriter():
-	pass
+func tilespriter(ship,rotate):
+	match ship:
+		0:
+			if rotate == true:
+				$Carrier.rotate()
+			$Carrier.show()
+		1:
+			if rotate == true:
+				$BattleShip.rotate()
+				$BattleShip.offset = Vector2(103.145,203.66)
+			$BattleShip.show()
+		2:
+			if rotate == true:
+				$Cursier.rotate()
+				
+			$Cursier.show()
+		3:
+			if rotate == true:
+				$Submarine.rotate()
+			$Submarine.show()
+		4:
+			if rotate == true:
+				$Destoryer.rotate()
+				$Destoryer.offset = Vector2()
+			$Destoryer.show()
 
 func _on_control_mouse_entered():
 	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
