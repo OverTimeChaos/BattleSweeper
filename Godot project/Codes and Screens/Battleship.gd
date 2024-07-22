@@ -8,5 +8,3 @@ func _process(delta): #corrects the spirtes of the ship every frame
 	$BoxContainer/Middle2.frame = StandAlone.battleship[2]
 	$BoxContainer/Back.frame = StandAlone.battleship[3]
 
-func rotating():
-	$BoxContainer.rotation = 0

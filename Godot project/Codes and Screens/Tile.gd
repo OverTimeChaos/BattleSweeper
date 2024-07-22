@@ -155,25 +155,25 @@ func tilespriter(ship,rotate):
 	match ship:
 		0:
 			if rotate == true:
-				$Carrier.rotating()
+				$Carrier.rotation = 90
 			$Carrier.show()
 		1:
 			if rotate == true:
-				$BattleShip.rotating()
+				$BattleShip.rotation = 90
 				$BattleShip.position = Vector2(103.145,203.66)
 			$BattleShip.show()
 		2:
 			if rotate == true:
-				$Cursier.rotating()
+				$Cursier.rotation = 90
 				
 			$Cursier.show()
 		3:
 			if rotate == true:
-				$Submarine.rotating()
+				$Submarine.rotation = 90
 			$Submarine.show()
 		4:
 			if rotate == true:
-				$Destoryer.rotating()
+				$Destoryer.rotation = 90
 				$Destoryer.position = Vector2(105,205)
 			$Destoryer.show()
 
