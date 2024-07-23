@@ -14,5 +14,6 @@ func _process(delta):
 
 
 func _on_play_again_pressed():
-	get_tree().change_scene_to_file("res://Codes and Screens/MainGame.tscn") #Swtiches to the main game screen
 	StandAlone.BeginGame() #Resets values and begins the game anew
+	get_tree().change_scene_to_file("res://Codes and Screens/MainGame.tscn") #Swtiches to the main game screen
+	

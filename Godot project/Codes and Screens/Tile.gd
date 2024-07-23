@@ -3,6 +3,8 @@ extends Node2D
 #Constants
 const boom = "boom"
 const default = "default"
+const partHit = "parthit"
+const sunk = "sunk"
 #Debug varaibles
 var CoveredDebug = true
 
@@ -12,8 +14,11 @@ var Flagged = false
 var IsMine = false
 var IsOccupied = false
 var Exploded = false
-var shipNumber = 0
-var partNumber = 0
+var shipNumber 
+var partNumber 
+var temp = null
+var turn = 0
+var checkfinish = false
 	
 func SetMine(): #function for setting a bomb on an individual tile
 		IsMine = true #the tile has a bomb 
@@ -26,10 +31,10 @@ func uncover(): #function for uncovering a tile
 			$Covered.hide() #hides the "Covered" sprite
 			
 			if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
+				checkfinish = false
 				Covered = false
 				Events.emit_signal("EventTrigger",boom,null)  #changes text to explosion message
 				await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
-				StandAlone.MineNumber -= 1
 				$Mine.hide()
 				explode()
 				for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
@@ -37,6 +42,7 @@ func uncover(): #function for uncovering a tile
 				await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
 				Events.emit_signal("EventTrigger", default,null) #sets it back to default message
 				$Numbers.set_frame(9)
+				StandAlone.MineNumber -= 1
 			
 			elif IsMine == false: #if the tile is not a mine, the game proceeds
 				StandAlone.TilesUncovered += 1 #adds 1 to tiles opened for completion condition
@@ -101,7 +107,8 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 					
 				#Check if player has completed the level. Complete condition
 				if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-						get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
+					get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
+						
 			
 			#If the tile is already flagged, unflag the tile
 			elif Flagged == true:
@@ -111,7 +118,7 @@ func ToggleFlag(): #function for toggling on and off a flag on a tile
 				if IsMine == false:
 					StandAlone.MineFlagged += 1
 					if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-							get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
+						get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
 				#if the unflagged tile contains a mine, remove 1 to MineFlagged for completion condition
 				if IsMine == true:
 					StandAlone.MineFlagged -= 1 
@@ -125,10 +132,52 @@ func explode(): #shows the explosion sprite
 	Exploded = true #sets tile to exploded so that if ship part is on exploded it will damage the ship part
 	$Explosion.show()
 	await get_tree().create_timer(1.0).timeout # shows explosion for the player to register that the mine has exploded
+	await CheckShip()
 	$Explosion.hide()
 	Exploded = false #not neccesary as if there was a ship near the radius of the tile there would be already destroyed
 	# however is great for scalablity 
 	
+func CheckShip():
+	if shipNumber != null:
+		Events.emit_signal("EventTrigger",partHit,StandAlone.ships[shipNumber]) #Tells the player they have been hit
+		temp = StandAlone.arrayShips[shipNumber]
+		if shipNumber == 0 or shipNumber == 1:  # Bandage fix for sprite assgin problem with battleship and Carrier
+			match shipNumber:
+				0: 
+					match partNumber:
+						0:
+							if turn == 0:
+								partNumber = 1
+						1:
+							if turn == 0:
+								partNumber = 0
+						3:
+							if turn == 1:
+								partNumber = 4
+						4:
+							if turn == 1:
+								partNumber = 3
+						
+				1:
+					match partNumber:
+						0:
+							if turn == 0:
+								partNumber = 1
+						1:
+							if turn == 0:
+								partNumber = 0
+						2:
+							if turn == 1:
+								partNumber = 3
+						3:
+							if turn == 1:
+								partNumber = 2
+		temp[partNumber] = 0
+		if temp.count(1) == 0:
+			Events.emit_signal("EventTrigger",partHit,StandAlone.ships[shipNumber]) #sets it back to default message
+		StandAlone.OverChecker()
+	if StandAlone.ShipParts == 0:
+		get_tree().change_scene_to_file("res://Codes and Screens/OverScreen.tscn")
 	
 func _on_control_gui_input(event):
 	if (event) is InputEventMouseButton: #detects mouse input
@@ -154,7 +203,9 @@ func indicated(bool):
 		$Covered.set_frame(0) #As the mouses unohoveres over a tile it changes to indicate that the tile is not being selected
 
 func tilespriter(ship,rotating):
-	var turn = randi_range(0,1)
+	turn = randi_range(0,1)
+	if turn == 1:
+		StandAlone.turned = true
 	match ship:
 		0:
 			if rotating == true:

@@ -39,7 +39,7 @@ var PlayerScore = 0
 
 #tile variables
 var interact = true
-
+var turned = false
 var firstleveldone = false
 
 #Set values at the start
@@ -66,7 +66,6 @@ func LevelReset():
 	Row = 8
 	Col = 8
 	MineNumber = randi_range(4,6)
-	ShipParts = 17
 	MineFlagged = 0
 	TilesRemain = 64-(MineNumber+ShipParts)
 	TilesUncovered = 0
@@ -148,3 +147,7 @@ func SortName():
 func Sortnew(): #sorts with new score and makes a new dictionary 
 	SortNumber()
 	SortName()
+	
+func OverChecker(): #check if all the ships are destoryed
+	if carrier.count(1) == 0 and battleship.count(1) == 0 and cruiser.count(1) == 0 and submarine.count(1) == 0 and destroyer.count(1) == 0:
+		get_tree().change_scene_to_file("res://Codes and Screens/OverScreen.tscn") 

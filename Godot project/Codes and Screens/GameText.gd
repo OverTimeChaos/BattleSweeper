@@ -16,3 +16,8 @@ func EventTriggered(event,info):
 		"invalid":
 			$".".text = "Sorry, Invalid placement of ship
 			Please try again"
+		"parthit":
+			$".".text = "Part of " + info +" has been hit!
+			Be more careful!"
+		"sunk":
+			$".".text = "We lost a ship!" + "\n" + info + " has sunk!"

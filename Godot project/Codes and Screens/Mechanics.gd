@@ -21,7 +21,6 @@ const invalid = "invalid"
 
 #Calls when the scene is opened
 func _ready(): 
-	
 	Input.warp_mouse(Vector2(361,434))
 	Events.NodePosition.connect(Nodepostioned) #connects a signal that reports the nodes position
 	#Spreads the tiles evenly per 65px from left corner of MineSpace rect
@@ -57,8 +56,7 @@ func Nodepostioned(node,postion): #allows the nodes infromation to be passed
 	noded = node
 	postioning = postion
 	
-func shipPlacer(): # allow ships to be placed
-	
+func shipPlacer(): # allow ships to be places
 	for node in nodes:
 		node.indicated(false) #defualt sets spirtes to not indicated 
 	var offsets = []
@@ -67,26 +65,31 @@ func shipPlacer(): # allow ships to be placed
 	if shipnumber < 5 and StandAlone.arrayShips[shipnumber].count(1) > 0 :
 		Events.emit_signal("EventTrigger",placing,StandAlone.ships[shipnumber]) 
 		offsets =  StandAlone.shipoffersetter(shipnumber,rotating) #grabs offsets
-		nodes.append(noded) 
 		for offset in offsets: #highlights the nodes
 			for tile in tiles:
 				if tile.position  == postioning + offset: 
 					nodes.append(tile)
+		nodes.insert((len(nodes)+1)/2,noded)
 		for node in nodes:
 			node.indicated(true)
 		if Input.is_action_just_pressed("LeftClick"): #places the ship
+			
 			for node in nodes:
 				occupiedchecking.append(node.IsOccupied)
+			
 			occupied = occupiedchecking.count(true)
 			if occupied == 0 and  len(occupiedchecking)== len(StandAlone.arrayShips[shipnumber]): #prevents invalid placements
 				tilenumber = 0
-				for node in nodes:
-					node.IsOccupied = true
-					while tilenumber < len(StandAlone.arrayShips[shipnumber]:
-						match tilenumber:
-							0,1,:
-								round()
 				noded.tilespriter(shipnumber,rotating)
+				
+				if noded.turn == 1:
+					nodes.reverse ()
+				for node in nodes:
+					node.turn = noded.turn
+					node.IsOccupied = true
+					node.shipNumber = shipnumber
+					node.partNumber = tilenumber
+					tilenumber += 1
 				move_child(noded,-1)
 				shipnumber += 1
 			else:
