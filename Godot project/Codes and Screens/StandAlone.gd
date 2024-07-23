@@ -34,11 +34,14 @@ var GameOver = false
 var ShipPlacement = false
 
 #Variable used to save scores 
-var PlayerScore = 10001
+var PlayerScore = 0
 
 
 #tile variables
 var interact = true
+
+var firstleveldone = false
+
 #Set values at the start
 func BeginGame(): 
 	carrier = [1,1,1,1,1]
@@ -53,7 +56,7 @@ func BeginGame():
 	ShipParts = 17
 	MineFlagged = 0
 	TilesRemain = 64-(MineNumber+ShipParts)
-	TilesUncovered = 0-(ShipParts)
+	TilesUncovered = 0
 	Complete = false
 	GameOver = false
 	PlayerScore = 0
@@ -66,7 +69,7 @@ func LevelReset():
 	ShipParts = 17
 	MineFlagged = 0
 	TilesRemain = 64-(MineNumber+ShipParts)
-	TilesUncovered = 0-(ShipParts)
+	TilesUncovered = 0
 	Complete = false
 	
 

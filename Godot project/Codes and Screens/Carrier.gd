@@ -1,10 +1,7 @@
 extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _ready ():
-	StandAlone.BeginGame()
 func _process(delta): #corrects the spirtes of the ship every frame
-	
 	$BoxContainer/Front.frame = StandAlone.carrier[0]
 	$BoxContainer/Middle.frame = StandAlone.carrier[1]
 	$BoxContainer/Middle2.frame = StandAlone.carrier[2]

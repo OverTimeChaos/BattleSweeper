@@ -21,42 +21,43 @@ func SetMine(): #function for setting a bomb on an individual tile
 
 
 func uncover(): #function for uncovering a tile
-	if Flagged == false and Covered == true: #if the tile is not flagged and a cover exists, player can uncover tile
-		$Covered.hide() #hides the "Covered" sprite
-		
-		if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
-			Covered = false
-			Events.emit_signal("EventTrigger",boom,null)  #changes text to explosion message
-			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
-			StandAlone.MineNumber -= 1
-			$Mine.hide()
-			explode()
-			for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
-				tile.explode()
-			await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
-			Events.emit_signal("EventTrigger", default,null) #sets it back to default message
-			$Numbers.set_frame(9)
-		
-		elif IsMine == false: #if the tile is not a mine, the game proceeds
-			StandAlone.TilesUncovered += 1 #adds 1 to tiles opened for completion condition
-			Covered = false #Removes the "Covered" sprite
+	if IsOccupied == false:
+		if Flagged == false and Covered == true: #if the tile is not flagged and a cover exists, player can uncover tile
+			$Covered.hide() #hides the "Covered" sprite
 			
+			if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
+				Covered = false
+				Events.emit_signal("EventTrigger",boom,null)  #changes text to explosion message
+				await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
+				StandAlone.MineNumber -= 1
+				$Mine.hide()
+				explode()
+				for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
+					tile.explode()
+				await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
+				Events.emit_signal("EventTrigger", default,null) #sets it back to default message
+				$Numbers.set_frame(9)
 			
-			var SurroundMineCount = 0 #displays the number of bombs around the uncovered tile in a 1 tile radius
-			for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
-				if tile.IsMine:
-					SurroundMineCount += 1 #varibale used to assign uncovered tile texture
-			if SurroundMineCount > 0: #if there is a mine touching
-				$Numbers.set_frame(SurroundMineCount) # Set the right number texture for amount of mines touching
-			else:
-				for tile in GetSurroundings():
-					if tile.Covered:
-						#uncovers tiles that don't have tocuhing mines to save the player from serprate uncovering each non mine touching tile
-						tile.uncover() 
-						
-		#Completion condition. If mines needed to be flagged have been flagged or tiles to be opened have been opened
-		if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-			get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
+			elif IsMine == false: #if the tile is not a mine, the game proceeds
+				StandAlone.TilesUncovered += 1 #adds 1 to tiles opened for completion condition
+				Covered = false #Removes the "Covered" sprite
+				
+				
+				var SurroundMineCount = 0 #displays the number of bombs around the uncovered tile in a 1 tile radius
+				for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
+					if tile.IsMine:
+						SurroundMineCount += 1 #varibale used to assign uncovered tile texture
+				if SurroundMineCount > 0: #if there is a mine touching
+					$Numbers.set_frame(SurroundMineCount) # Set the right number texture for amount of mines touching
+				else:
+					for tile in GetSurroundings():
+						if tile.Covered:
+							#uncovers tiles that don't have tocuhing mines to save the player from serprate uncovering each non mine touching tile
+							tile.uncover() 
+							
+			#Completion condition. If mines needed to be flagged have been flagged or tiles to be opened have been opened
+			if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
+				get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
 
 						
 func GetSurroundings(): #function for getting a tile's surroundings for neighbouring mines
@@ -82,42 +83,43 @@ func GetSurroundings(): #function for getting a tile's surroundings for neighbou
 	
 func ToggleFlag(): #function for toggling on and off a flag on a tile
 #Primary check for if tile is still covered
-	if Covered:
-		
-		#if the tile is not flagged, flag the tile
-		if Flagged == false:
-			$Flag.show()
-			Flagged = true 
+	if IsOccupied == false:
+		if Covered:
 			
-				# if the unflagged tile does not contain a mine, remove 1 to MineFlagged for completion condition
-			if IsMine == false:
-				StandAlone.MineFlagged -= 1
-		
-			#if the flagged tile contains a mine, adds 1 to MineFlagged for complete condition
-			if IsMine== true:
-				StandAlone.MineFlagged += 1
+			#if the tile is not flagged, flag the tile
+			if Flagged == false:
+				$Flag.show()
+				Flagged = true 
 				
-			#Check if player has completed the level. Complete condition
-			if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
-					get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
-		
-		#If the tile is already flagged, unflag the tile
-		elif Flagged == true:
-			$Flag.hide()
+					# if the unflagged tile does not contain a mine, remove 1 to MineFlagged for completion condition
+				if IsMine == false:
+					StandAlone.MineFlagged -= 1
 			
-			# if the unflagged tile does not contain a mine, add 1 to MineFlagged for completion condition
-			if IsMine == false:
-				StandAlone.MineFlagged += 1
+				#if the flagged tile contains a mine, adds 1 to MineFlagged for complete condition
+				if IsMine== true:
+					StandAlone.MineFlagged += 1
+					
+				#Check if player has completed the level. Complete condition
 				if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
 						get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
-			#if the unflagged tile contains a mine, remove 1 to MineFlagged for completion condition
-			if IsMine == true:
-				StandAlone.MineFlagged -= 1 
-			Flagged = false 
-		#secondary check if the cover is still on the tile
-		#if the cover has already been uncovered, the code will do nothing thus the input will do nothing
-		elif Covered == false:
-			pass
+			
+			#If the tile is already flagged, unflag the tile
+			elif Flagged == true:
+				$Flag.hide()
+				
+				# if the unflagged tile does not contain a mine, add 1 to MineFlagged for completion condition
+				if IsMine == false:
+					StandAlone.MineFlagged += 1
+					if StandAlone.MineFlagged == StandAlone.MineNumber or StandAlone.TilesUncovered == StandAlone.TilesRemain:
+							get_tree().change_scene_to_file("res://Codes and Screens/CompleteScreen.tscn") #Swtiches to the complete level screen
+				#if the unflagged tile contains a mine, remove 1 to MineFlagged for completion condition
+				if IsMine == true:
+					StandAlone.MineFlagged -= 1 
+				Flagged = false 
+			#secondary check if the cover is still on the tile
+			#if the cover has already been uncovered, the code will do nothing thus the input will do nothing
+			elif Covered == false:
+				pass
 
 func explode(): #shows the explosion sprite
 	Exploded = true #sets tile to exploded so that if ship part is on exploded it will damage the ship part
@@ -151,41 +153,71 @@ func indicated(bool):
 	if bool == false:
 		$Covered.set_frame(0) #As the mouses unohoveres over a tile it changes to indicate that the tile is not being selected
 
-func tilespriter(ship,rotate):
+func tilespriter(ship,rotating):
+	var turn = randi_range(0,1)
 	match ship:
 		0:
-			if rotate == true:
-				$Carrier.rotation = 90
+			if rotating == true:
+				if turn == 1:
+					$Carrier.rotation_degrees = 270
+				else:
+					$Carrier.rotation_degrees = 90
+			else:
+				if turn == 1:
+					$Carrier.rotation_degrees = 180
 			$Carrier.show()
 		1:
-			if rotate == true:
-				$BattleShip.rotation = 90
+			if rotating == true:
+				if turn == 1:
+					$BattleShip.rotation_degrees  = 270
+				else:
+					$BattleShip.rotation_degrees  = 90
 				$BattleShip.position = Vector2(103.145,203.66)
+			else:
+				if turn == 1:
+					$BattleShip.rotation_degrees  = 180
 			$BattleShip.show()
 		2:
-			if rotate == true:
-				$Cursier.rotation = 90
-				
+			if rotating == true:
+				if turn == 1:
+					$Cursier.rotation_degrees = 270
+				else:
+					$Cursier.rotation_degrees = 90
+			else:
+				if turn == 1:
+					$Cursier.rotation_degrees = 180
 			$Cursier.show()
 		3:
-			if rotate == true:
-				$Submarine.rotation = 90
+			if rotating == true:
+				if turn == 1:
+					$Submarine.rotation_degrees = 270
+				else:
+					$Submarine.rotation_degrees = 90
+			else:
+				if turn == 1:
+					$Submarine.rotation_degrees = 180
 			$Submarine.show()
 		4:
-			if rotate == true:
-				$Destoryer.rotation = 90
-				$Destoryer.position = Vector2(105,205)
+			if rotating == true:
+				if turn == 1:
+					$Destoryer.rotation_degrees  = 270
+				else:
+					$Destoryer.rotation_degrees  = 90
+				$Destoryer.position = Vector2(103,208)
+			else:
+				if turn == 1:
+					$Destoryer.rotation_degrees  = 180
 			$Destoryer.show()
 
 func _on_control_mouse_entered():
 	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		Events.emit_signal("NodePosition",self,position)
-	elif StandAlone.ShipPlacement == false:
+	elif StandAlone.ShipPlacement == false and IsOccupied == false :
 		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
 func _on_control_mouse_exited():
 	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		Events.emit_signal("NodePosition",self,position)
-	elif StandAlone.ShipPlacement == false:
+	elif StandAlone.ShipPlacement == false and IsOccupied == false:
 		$Covered.set_frame(0)#As the mouses leaves the tile it changes to indicate that the tile is not being selected
 		
 		

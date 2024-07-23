@@ -11,7 +11,8 @@ var Partsalive = 0
 var occupied  = 0
 var hovered = false
 var rotating = false
-var pn = 0 # which ship is currently being selected (Carrier,Battleship,Cruiser,Submarine,Destroyer) in order
+var shipnumber = 0 # which ship is currently being selected (Carrier,Battleship,Cruiser,Submarine,Destroyer) in order
+var tilenumber = 0
 var mouseinside = false 
 const placing = "placing"
 const default = "default"
@@ -20,6 +21,7 @@ const invalid = "invalid"
 
 #Calls when the scene is opened
 func _ready(): 
+	
 	Input.warp_mouse(Vector2(361,434))
 	Events.NodePosition.connect(Nodepostioned) #connects a signal that reports the nodes position
 	#Spreads the tiles evenly per 65px from left corner of MineSpace rect
@@ -29,7 +31,9 @@ func _ready():
 			t.position = Vector2(r, c)*65
 			add_child(t)
 	tiles = get_children()
+	
 	StandAlone.ShipPlacement = true
+	
 	
 func _process(delta):
 	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
@@ -60,9 +64,9 @@ func shipPlacer(): # allow ships to be placed
 	var offsets = []
 	var occupiedchecking = [] # checks for if the occupied value is on a tile
 	nodes = [] #array of nodes
-	if pn < 5 and StandAlone.arrayShips[pn].count(1) > 0 :
-		Events.emit_signal("EventTrigger",placing,StandAlone.ships[pn]) 
-		offsets =  StandAlone.shipoffersetter(pn,rotating) #grabs offsets
+	if shipnumber < 5 and StandAlone.arrayShips[shipnumber].count(1) > 0 :
+		Events.emit_signal("EventTrigger",placing,StandAlone.ships[shipnumber]) 
+		offsets =  StandAlone.shipoffersetter(shipnumber,rotating) #grabs offsets
 		nodes.append(noded) 
 		for offset in offsets: #highlights the nodes
 			for tile in tiles:
@@ -74,11 +78,17 @@ func shipPlacer(): # allow ships to be placed
 			for node in nodes:
 				occupiedchecking.append(node.IsOccupied)
 			occupied = occupiedchecking.count(true)
-			if occupied == 0 and  len(occupiedchecking)== len(StandAlone.arrayShips[pn]): #prevents invalid placements
+			if occupied == 0 and  len(occupiedchecking)== len(StandAlone.arrayShips[shipnumber]): #prevents invalid placements
+				tilenumber = 0
 				for node in nodes:
 					node.IsOccupied = true
-					noded.tilespriter(pn,rotating)
-				pn += 1
+					while tilenumber < len(StandAlone.arrayShips[shipnumber]:
+						match tilenumber:
+							0,1,:
+								round()
+				noded.tilespriter(shipnumber,rotating)
+				move_child(noded,-1)
+				shipnumber += 1
 			else:
 				Events.emit_signal("EventTrigger",invalid,null) 
 				StandAlone.interact =  false
@@ -91,12 +101,13 @@ func shipPlacer(): # allow ships to be placed
 				rotating = true
 			else:
 				rotating = false
-	elif pn == 5: # sets the mines
+			
+	elif shipnumber == 5: # sets the mines
 		Events.emit_signal("EventTrigger",default,null)
 		SetMines() #sets mines after all ships are placed
 		StandAlone.ShipPlacement = false
 	else: 
-		pn += 1
+		shipnumber += 1
 
 
 # function to hide Covered sprite on tiles
