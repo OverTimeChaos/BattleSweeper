@@ -45,7 +45,8 @@ func savingfile():
 	var config = ConfigFile.new()
 	if username in StandAlone.usernames:
 		var playernum =StandAlone.usernames.find(username, 0) #find where the repeated name exists in config file
-		config.set_value(StandAlone.usernames[playernum], "score", StandAlone.scores[playernum])
+		print (playernum)
+		config.set_value(StandAlone.usernames[playernum], "score", StandAlone.PlayerScore)
 		StandAlone.openfile()
 	else:
 		StandAlone.scoresandnames[username] = StandAlone.PlayerScore #puts them into a dictionary

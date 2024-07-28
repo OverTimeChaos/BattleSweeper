@@ -34,7 +34,7 @@ var GameOver = false
 var ShipPlacement = false
 
 #Variable used to save scores 
-var PlayerScore = 1
+var PlayerScore = 2
 
 
 #tile variables
@@ -72,6 +72,9 @@ func LevelReset():
 	
 
 func openfile():
+	scoresandnames = {}
+	scores = []
+	usernames = []
 	var config = ConfigFile.new() #new instantance of ConfigFile
 	
 	# Load data from a file.
