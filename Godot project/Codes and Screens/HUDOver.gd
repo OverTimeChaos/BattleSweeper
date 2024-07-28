@@ -44,26 +44,27 @@ func _on_line_edit_text_submitted(new_text):
 func savingfile():
 	var config = ConfigFile.new()
 	if username in StandAlone.usernames:
-		var playernum =StandAlone.usernames.bsearch(username, true) #find where the repeated name exists in config file
-		config.set_value(StandAlone.sections[playernum], "score", StandAlone.scores[playernum])
+		var playernum =StandAlone.usernames.find(username, 0) #find where the repeated name exists in config file
+		config.set_value(StandAlone.usernames[playernum], "score", StandAlone.scores[playernum])
+		StandAlone.openfile()
+	else:
+		StandAlone.scoresandnames[username] = StandAlone.PlayerScore #puts them into a dictionary
+		StandAlone.scores.append (StandAlone.scoresandnames[username])  #puts the scores into an array
+		StandAlone.Sortnew() # sorts everything all the scores with the new score
 		
-	StandAlone.scoresandnames[username] = StandAlone.PlayerScore #puts them into a dictionary
-	StandAlone.scores.append (StandAlone.scoresandnames[username])  #puts the scores into an array
-	StandAlone.Sortnew() # sorts everything all the scores with the new score
-	
 
-	#Assign new top 5 scores
-	config.set_value("Player1", "player_name", StandAlone.usernames[0])
-	config.set_value("Player1", "score", StandAlone.scores[0])
-	config.set_value("Player2", "player_name", StandAlone.usernames[1])
-	config.set_value("Player2", "score", StandAlone.scores[1])
-	config.set_value("Player3", "player_name", StandAlone.usernames[2])
-	config.set_value("Player3", "score", StandAlone.scores[2])
-	config.set_value("Player4", "player_name", StandAlone.usernames[3])
-	config.set_value("Player4", "score", StandAlone.scores[3])
-	config.set_value("Player5", "player_name", StandAlone.usernames[4])
-	config.set_value("Player5", "score", StandAlone.scores[4])
-	config.save("user://scores.cfg")
+		#Assign new top 5 scores
+		config.set_value("Player1", "player_name", StandAlone.usernames[0])
+		config.set_value("Player1", "score", StandAlone.scores[0])
+		config.set_value("Player2", "player_name", StandAlone.usernames[1])
+		config.set_value("Player2", "score", StandAlone.scores[1])
+		config.set_value("Player3", "player_name", StandAlone.usernames[2])
+		config.set_value("Player3", "score", StandAlone.scores[2])
+		config.set_value("Player4", "player_name", StandAlone.usernames[3])
+		config.set_value("Player4", "score", StandAlone.scores[3])
+		config.set_value("Player5", "player_name", StandAlone.usernames[4])
+		config.set_value("Player5", "score", StandAlone.scores[4])
+		config.save("user://scores.cfg")
 
 
 
