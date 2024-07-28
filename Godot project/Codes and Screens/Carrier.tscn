@@ -92,7 +92,7 @@ rotation = -1.5708
 scale = Vector2(0.075, 0.075)
 
 [node name="Front" type="AnimatedSprite2D" parent="BoxContainer"]
-position = Vector2(0, -1609)
+position = Vector2(0.00574372, -1586.67)
 sprite_frames = SubResource("SpriteFrames_ix14u")
 
 [node name="Middle" type="AnimatedSprite2D" parent="BoxContainer"]

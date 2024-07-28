@@ -39,7 +39,6 @@ var PlayerScore = 0
 
 #tile variables
 var interact = true
-var turned = false
 var firstleveldone = false
 
 #Set values at the start

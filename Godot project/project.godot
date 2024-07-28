@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="BatteSweeper"
+config/name="BattleSweeper"
 run/main_scene="res://Codes and Screens/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Decals/Icon.svg"

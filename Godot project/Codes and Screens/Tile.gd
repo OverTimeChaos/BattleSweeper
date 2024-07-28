@@ -8,7 +8,7 @@ const sunk = "sunk"
 #Debug varaibles
 var CoveredDebug = true
 
-#varible for individual tile
+#variable for individual tile
 var Covered = true
 var Flagged = false
 var IsMine = false
@@ -18,7 +18,6 @@ var shipNumber
 var partNumber 
 var temp = null
 var turn = 0
-var checkfinish = false
 	
 func SetMine(): #function for setting a bomb on an individual tile
 		IsMine = true #the tile has a bomb 
@@ -31,15 +30,14 @@ func uncover(): #function for uncovering a tile
 			$Covered.hide() #hides the "Covered" sprite
 			
 			if IsMine == true: #if the tile is a mine, the mine will explode creating a radius
-				checkfinish = false
 				Covered = false
 				Events.emit_signal("EventTrigger",boom,null)  #changes text to explosion message
 				await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
 				$Mine.hide()
 				explode()
-				for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mines
+				for tile in GetSurroundings(): #calls the GetSurroundings function to found the Surroundings mine nodes (places into an array)
 					tile.explode()
-				await get_tree().create_timer(1.0).timeout # shows the mine before it mine explosion frame
+				await get_tree().create_timer(2.0).timeout # allows the player to recogise the explosion before it disappers
 				Events.emit_signal("EventTrigger", default,null) #sets it back to default message
 				$Numbers.set_frame(9)
 				StandAlone.MineNumber -= 1
@@ -142,7 +140,7 @@ func CheckShip():
 		Events.emit_signal("EventTrigger",partHit,StandAlone.ships[shipNumber]) #Tells the player they have been hit
 		temp = StandAlone.arrayShips[shipNumber]
 		if shipNumber == 0 or shipNumber == 1:  # Bandage fix for sprite assgin problem with battleship and Carrier
-			match shipNumber:
+			match shipNumber: #This match with a nested match swaps the values of the ship parts
 				0: 
 					match partNumber:
 						0:
@@ -174,10 +172,8 @@ func CheckShip():
 								partNumber = 2
 		temp[partNumber] = 0
 		if temp.count(1) == 0:
-			Events.emit_signal("EventTrigger",partHit,StandAlone.ships[shipNumber]) #sets it back to default message
-		StandAlone.OverChecker()
-	if StandAlone.ShipParts == 0:
-		get_tree().change_scene_to_file("res://Codes and Screens/OverScreen.tscn")
+			Events.emit_signal("EventTrigger",sunk,StandAlone.ships[shipNumber]) #shows that the ship has sunk
+			StandAlone.OverChecker() # checks if game is over
 	
 func _on_control_gui_input(event):
 	if (event) is InputEventMouseButton: #detects mouse input
@@ -196,16 +192,15 @@ func _on_control_gui_input(event):
 				ToggleFlag()
 				
 				
-func indicated(bool):
-	if bool == true:
+func indicated(status):
+	if status == true:
 		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
-	if bool == false:
+	elif status == false:
 		$Covered.set_frame(0) #As the mouses unohoveres over a tile it changes to indicate that the tile is not being selected
 
 func tilespriter(ship,rotating):
 	turn = randi_range(0,1)
-	if turn == 1:
-		StandAlone.turned = true
+	#depending on the random interger that is generated it will either not or will flip the spirte by 180 degrees of the ships orignal angle
 	match ship:
 		0:
 			if rotating == true:
@@ -265,6 +260,7 @@ func _on_control_mouse_entered():
 		Events.emit_signal("NodePosition",self,position)
 	elif StandAlone.ShipPlacement == false and IsOccupied == false :
 		$Covered.set_frame(1) #As the mouses hovers over a tile it changes to indicate that the tile is being selected
+
 func _on_control_mouse_exited():
 	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		Events.emit_signal("NodePosition",self,position)
