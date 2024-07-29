@@ -3,6 +3,7 @@ var cutoff = 0
 var  passed = false
 var username 
 var interacted = false
+var namenumber = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Bottom/HBoxContainer/Number.text = str(StandAlone.PlayerScore)
@@ -22,7 +23,7 @@ func savefile():
 			await get_tree().create_timer(1.0).timeout
 			$Bottom/error.text = ""
 		else:
-			cutoff = StandAlone.scores[4]
+			cutoff = StandAlone.scores[-1]
 			if StandAlone.PlayerScore < cutoff: #won't add player to score file if player score is under the lowest score
 				$Bottom/error.text = "Not Saved
 		Score lower then 5th highest score"
@@ -43,28 +44,31 @@ func _on_line_edit_text_submitted(new_text):
 
 func savingfile():
 	var config = ConfigFile.new()
+	var namenumber = 0
 	if username in StandAlone.usernames:
 		var playernum =StandAlone.usernames.find(username, 0) #find where the repeated name exists in config file
-		print (playernum)
-		config.set_value(StandAlone.usernames[playernum], "score", StandAlone.PlayerScore)
-		StandAlone.openfile()
+		config.set_value(StandAlone.sections[playernum], "score", StandAlone.PlayerScore)
+		for section in StandAlone.sections:
+			if section == StandAlone.sections[playernum]:
+				pass
+			else:
+				config.set_value(section, "player_name", StandAlone.usernames[namenumber])
+				config.set_value(section, "score", StandAlone.scores[namenumber])
+				namenumber += 1
+		config.save("user://scores.cfg")
+		
+		
 	else:
 		StandAlone.scoresandnames[username] = StandAlone.PlayerScore #puts them into a dictionary
 		StandAlone.scores.append (StandAlone.scoresandnames[username])  #puts the scores into an array
 		StandAlone.Sortnew() # sorts everything all the scores with the new score
-		
+
 
 		#Assign new top 5 scores
-		config.set_value("Player1", "player_name", StandAlone.usernames[0])
-		config.set_value("Player1", "score", StandAlone.scores[0])
-		config.set_value("Player2", "player_name", StandAlone.usernames[1])
-		config.set_value("Player2", "score", StandAlone.scores[1])
-		config.set_value("Player3", "player_name", StandAlone.usernames[2])
-		config.set_value("Player3", "score", StandAlone.scores[2])
-		config.set_value("Player4", "player_name", StandAlone.usernames[3])
-		config.set_value("Player4", "score", StandAlone.scores[3])
-		config.set_value("Player5", "player_name", StandAlone.usernames[4])
-		config.set_value("Player5", "score", StandAlone.scores[4])
+		for section in StandAlone.sections:
+			config.set_value(section, "player_name", StandAlone.usernames[namenumber])
+			config.set_value(section, "score", StandAlone.scores[namenumber])
+			namenumber += 1
 		config.save("user://scores.cfg")
 
 
