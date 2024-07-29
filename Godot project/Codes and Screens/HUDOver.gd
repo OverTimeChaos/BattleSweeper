@@ -17,7 +17,7 @@ func _process(delta):
 			get_tree().change_scene_to_file("res://Codes and Screens/LeaderScreen.tscn") 
 		#Swtiches to the leader board screen
 func savefile():
-	if interacted == true:
+	if interacted == true: #prevents players from hiting enter without entering a name by interacting with the box
 		if username == "":
 			$Bottom/error.text = "Please Enter name"
 			await get_tree().create_timer(1.0).timeout
@@ -45,16 +45,18 @@ func _on_line_edit_text_submitted(new_text):
 func savingfile():
 	var config = ConfigFile.new()
 	var namenumber = 0
-	if username in StandAlone.usernames:
+	if username in StandAlone.usernames: #if name is existing it will replace the score if applicable
 		var playernum =StandAlone.usernames.find(username, 0) #find where the repeated name exists in config file
-		if StandAlone.PlayerScore < StandAlone.scores[playernum]:
+		if StandAlone.PlayerScore < StandAlone.scores[playernum]: #doens't change the score if score is lower then returning players pb
 			pass
 		else:
 			for section in StandAlone.sections:
+				#assgins returing player score
 				if section == StandAlone.sections[playernum]:
 					config.set_value(StandAlone.sections[playernum], "player_name", StandAlone.usernames[namenumber])
 					config.set_value(StandAlone.sections[playernum], "score", StandAlone.PlayerScore)
 					namenumber += 1
+					#Assigns other 4 scores
 				else:
 					config.set_value(section, "player_name", StandAlone.usernames[namenumber])
 					config.set_value(section, "score", StandAlone.scores[namenumber])
@@ -73,14 +75,7 @@ func savingfile():
 			config.set_value(section, "player_name", StandAlone.usernames[namenumber])
 			config.set_value(section, "score", StandAlone.scores[namenumber])
 			namenumber += 1
-		config.save("user://scores.cfg")
-
-
-
-
-
-	
-
+		config.save("user://scores.cfg") #Saves
 
 func _on_line_edit_focus_entered():
 	interacted = true

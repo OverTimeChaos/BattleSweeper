@@ -35,6 +35,7 @@ func _ready():
 	
 	
 func _process(delta):
+	#continues to run the ship plcaing code
 	if StandAlone.ShipPlacement == true and StandAlone.interact == true:
 		shipPlacer()
 		
@@ -92,7 +93,7 @@ func shipPlacer(): # allow ships to be places
 					tilenumber += 1
 				move_child(noded,-1)
 				shipnumber += 1
-			else:
+			else: #display invalid placement message
 				Events.emit_signal("EventTrigger",invalid,null) 
 				StandAlone.interact =  false
 				await get_tree().create_timer(1.0).timeout # allows the player to process the message
