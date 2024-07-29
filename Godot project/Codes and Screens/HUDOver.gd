@@ -47,17 +47,21 @@ func savingfile():
 	var namenumber = 0
 	if username in StandAlone.usernames:
 		var playernum =StandAlone.usernames.find(username, 0) #find where the repeated name exists in config file
-		config.set_value(StandAlone.sections[playernum], "score", StandAlone.PlayerScore)
-		for section in StandAlone.sections:
-			if section == StandAlone.sections[playernum]:
-				pass
-			else:
-				config.set_value(section, "player_name", StandAlone.usernames[namenumber])
-				config.set_value(section, "score", StandAlone.scores[namenumber])
-				namenumber += 1
-		config.save("user://scores.cfg")
-		
-		
+		if StandAlone.PlayerScore < StandAlone.scores[playernum]:
+			pass
+		else:
+			for section in StandAlone.sections:
+				if section == StandAlone.sections[playernum]:
+					config.set_value(StandAlone.sections[playernum], "player_name", StandAlone.usernames[namenumber])
+					config.set_value(StandAlone.sections[playernum], "score", StandAlone.PlayerScore)
+					namenumber += 1
+				else:
+					config.set_value(section, "player_name", StandAlone.usernames[namenumber])
+					config.set_value(section, "score", StandAlone.scores[namenumber])
+					namenumber += 1
+			config.save("user://scores.cfg")
+			
+			
 	else:
 		StandAlone.scoresandnames[username] = StandAlone.PlayerScore #puts them into a dictionary
 		StandAlone.scores.append (StandAlone.scoresandnames[username])  #puts the scores into an array
