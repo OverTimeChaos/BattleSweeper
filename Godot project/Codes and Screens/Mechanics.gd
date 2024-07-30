@@ -7,13 +7,10 @@ var noded =""
 var postioning =[0,0] #Dummary value to avoid errors
 var nodes = [] #array of nodes
 # ship info
-var Partsalive = 0
 var occupied  = 0
-var hovered = false
 var rotating = false
 var shipnumber = 0 # which ship is currently being selected (Carrier,Battleship,Cruiser,Submarine,Destroyer) in order
 var tilenumber = 0
-var mouseinside = false 
 const placing = "placing"
 const default = "default"
 const invalid = "invalid"

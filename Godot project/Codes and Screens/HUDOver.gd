@@ -1,9 +1,8 @@
 extends CanvasLayer
 var cutoff = 0
-var  passed = false
+var passed = false
 var username 
 var interacted = false
-var namenumber = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Bottom/HBoxContainer/Number.text = str(StandAlone.PlayerScore)
