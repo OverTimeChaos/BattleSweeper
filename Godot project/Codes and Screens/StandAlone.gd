@@ -34,7 +34,7 @@ var GameOver = false
 var ShipPlacement = false
 
 #Variable used to save scores 
-var PlayerScore = 3
+var PlayerScore = 0
 
 
 #tile variables
