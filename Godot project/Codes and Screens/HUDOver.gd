@@ -23,15 +23,16 @@ func savefile():
 			$Bottom/error.text = ""
 		else:
 			cutoff = StandAlone.scores[-1]
-			if StandAlone.PlayerScore < cutoff: #won't add player to score file if player score is under the lowest score
+			if StandAlone.PlayerScore <= cutoff: #won't add player to score file if player score is under the lowest score
 				$Bottom/error.text = "Not Saved
-		Score lower then 5th highest score"
+		Score lower then or at the 5th highest score"
 				await get_tree().create_timer(1.0).timeout
 				passed = true 
 				pass 
 			else:
+				await savingfile()
 				passed = true 
-				savingfile()
+				
 	else:
 		$Bottom/error.text = "Please Enter name"
 		await get_tree().create_timer(1.0).timeout
@@ -46,7 +47,10 @@ func savingfile():
 	var namenumber = 0
 	if username in StandAlone.usernames: #if name is existing it will replace the score if applicable
 		var playernum =StandAlone.usernames.find(username, 0) #find where the repeated name exists in config file
-		if StandAlone.PlayerScore < StandAlone.scores[playernum]: #doens't change the score if score is lower then returning players pb
+		if StandAlone.PlayerScore <= StandAlone.scores[playernum]: #doens't change the score if score is lower then returning players pb
+			$Bottom/error.text = "Not Saved
+		Lower then or at the personal best"
+			await get_tree().create_timer(1.0).timeout
 			pass
 		else:
 			for section in StandAlone.sections:
@@ -75,6 +79,6 @@ func savingfile():
 			config.set_value(section, "score", StandAlone.scores[namenumber])
 			namenumber += 1
 		config.save("user://scores.cfg") #Saves
-
+	
 func _on_line_edit_focus_entered():
 	interacted = true
