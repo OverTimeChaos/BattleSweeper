@@ -11,7 +11,8 @@ ms_e
 The Godot Cafe Discord Community
 Sprites
 Lowder2
-putianyi889"
+putianyi889
+borednordicgod"
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Codes and Screens/TitleScreen.tscn")
