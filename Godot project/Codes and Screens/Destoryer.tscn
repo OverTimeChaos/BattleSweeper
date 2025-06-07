@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dxx54ghr1bqre"]
 
-[ext_resource type="Script" path="res://Codes and Screens/Destoryer.gd" id="1_52g18"]
+[ext_resource type="Script" uid="uid://cqywbev5pn6ll" path="res://Codes and Screens/Destoryer.gd" id="1_52g18"]
 [ext_resource type="Texture2D" uid="uid://crhxs8s7qljvn" path="res://Decals/Resized/Ships/Destoryer/ShipDestroyerDestoryPart1_scaled_20x_pngcrushed.png" id="1_qteew"]
 [ext_resource type="Texture2D" uid="uid://bk71nrvtj457j" path="res://Decals/Resized/Ships/Destoryer/ShipDestroyerPart1_scaled_20x_pngcrushed.png" id="2_w0b1t"]
 [ext_resource type="Texture2D" uid="uid://c3yt65c0snfxi" path="res://Decals/Resized/Ships/Destoryer/ShipDestroyerDestoryPart2_scaled_20x_pngcrushed.png" id="3_l8nvq"]

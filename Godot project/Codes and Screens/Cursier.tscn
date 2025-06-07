@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://x4fkns0lhn4"]
 
 [ext_resource type="Texture2D" uid="uid://dobwoa0xgupc7" path="res://Decals/Resized/Ships/Crusier/ShipCruiserDestoryPart1_scaled_20x_pngcrushed.png" id="1_dmlyb"]
-[ext_resource type="Script" path="res://Codes and Screens/Cursier.gd" id="1_lcm5x"]
+[ext_resource type="Script" uid="uid://bu15lgnayho6m" path="res://Codes and Screens/Cursier.gd" id="1_lcm5x"]
 [ext_resource type="Texture2D" uid="uid://b6aitxtafva2m" path="res://Decals/Resized/Ships/Crusier/ShipCruiserPart1_scaled_20x_pngcrushed.png" id="2_4o76g"]
 [ext_resource type="Texture2D" uid="uid://chp58d1aphr47" path="res://Decals/Resized/Ships/Crusier/ShipCruiserDestoryPart2_scaled_20x_pngcrushed.png" id="3_ims1j"]
 [ext_resource type="Texture2D" uid="uid://blueqhqoys0jc" path="res://Decals/Resized/Ships/Crusier/ShipCruiserPart2_scaled_20x_pngcrushed.png" id="4_a5qty"]

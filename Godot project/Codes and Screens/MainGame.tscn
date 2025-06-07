@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://vnsu53i0sb36"]
 
-[ext_resource type="Script" path="res://Codes and Screens/Debug.gd" id="1_e3tfo"]
-[ext_resource type="Script" path="res://Codes and Screens/Mechanics.gd" id="3_mi6uc"]
+[ext_resource type="Script" uid="uid://cai8u4pm5i2t5" path="res://Codes and Screens/Debug.gd" id="1_e3tfo"]
+[ext_resource type="Script" uid="uid://dw72d7r77v36b" path="res://Codes and Screens/Mechanics.gd" id="3_mi6uc"]
 [ext_resource type="PackedScene" uid="uid://dxl42l5poe14j" path="res://Codes and Screens/HUDGame.tscn" id="3_pre6p"]
 
 [node name="MainGame" type="Node"]

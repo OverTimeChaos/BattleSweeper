@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://d06cxn84m8nas"]
 
-[ext_resource type="Script" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
+[ext_resource type="Script" uid="uid://drxveledtewi1" path="res://Codes and Screens/Tile.gd" id="1_jb1yw"]
 [ext_resource type="Texture2D" uid="uid://cjog7s0gl8a1k" path="res://Decals/MineSweeper/cells/WinmineXP/celldown.svg" id="1_qjw4r"]
 [ext_resource type="Texture2D" uid="uid://dht4f37god63p" path="res://Decals/MineSweeper/cells/WinmineXP/cellup.svg" id="2_yxj1u"]
 [ext_resource type="Texture2D" uid="uid://ctpwgidtvpwa4" path="res://Decals/MineSweeper/cells/WinmineXP/cell1.svg" id="3_nk0fq"]

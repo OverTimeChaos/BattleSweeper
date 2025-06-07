@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d30mh08pnoqsc"]
 
-[ext_resource type="Script" path="res://Codes and Screens/Battleship.gd" id="1_4mmvm"]
+[ext_resource type="Script" uid="uid://c6wg6isd6qam0" path="res://Codes and Screens/Battleship.gd" id="1_4mmvm"]
 [ext_resource type="Texture2D" uid="uid://bkcqkvjre4lv2" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart1_scaled_20x_pngcrushed.png" id="1_cle53"]
 [ext_resource type="Texture2D" uid="uid://ce8g0pb6y5php" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipPart1_scaled_20x_pngcrushed.png" id="2_glos8"]
 [ext_resource type="Texture2D" uid="uid://1bunmr4v0qyj" path="res://Decals/Resized/Ships/BattleShip/ShipBattleshipDestoryPart2_scaled_20x_pngcrushed.png" id="3_rcynj"]

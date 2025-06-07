@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b61nkq3wiawen"]
 
-[ext_resource type="Script" path="res://Codes and Screens/thanks.gd" id="1_hb40w"]
+[ext_resource type="Script" uid="uid://bghyyr6xn6022" path="res://Codes and Screens/thanks.gd" id="1_hb40w"]
 [ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_ssvs3"]
 [ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="5_m81b6"]
 

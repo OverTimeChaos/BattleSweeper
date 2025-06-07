@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://trevuaislst7"]
 
 [ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="1_ns87j"]
-[ext_resource type="Script" path="res://Codes and Screens/HUDScore.gd" id="1_uy8qy"]
+[ext_resource type="Script" uid="uid://gnjwk2vapmpw" path="res://Codes and Screens/HUDScore.gd" id="1_uy8qy"]
 [ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="2_q55bx"]
 
 [node name="HUDScore" type="CanvasLayer"]

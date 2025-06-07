@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://lyeenkqpg2wb"]
 
-[ext_resource type="Script" path="res://Codes and Screens/Carrier.gd" id="1_hpd7m"]
+[ext_resource type="Script" uid="uid://3d68nbd6ygqs" path="res://Codes and Screens/Carrier.gd" id="1_hpd7m"]
 [ext_resource type="Texture2D" uid="uid://55lgsi0dpvtd" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart1_scaled_20x_pngcrushed.png" id="1_vgw5e"]
 [ext_resource type="Texture2D" uid="uid://b7wyrcca82vhx" path="res://Decals/Resized/Ships/Carrier/ShipCarrierPart1_scaled_20x_pngcrushed.png" id="2_lx1gd"]
 [ext_resource type="Texture2D" uid="uid://cvnhcv43d3lqg" path="res://Decals/Resized/Ships/Carrier/ShipCarrierDestoryPart2_scaled_20x_pngcrushed.png" id="3_og7mf"]

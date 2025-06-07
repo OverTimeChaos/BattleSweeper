@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cgxqnpg5ax2u6" path="res://Assets/Font/Title.tres" id="1_5cx8q"]
 [ext_resource type="Theme" uid="uid://ccvuhvxgyotno" path="res://Assets/Font/normaltext.tres" id="2_qdups"]
-[ext_resource type="Script" path="res://Codes and Screens/GameText.gd" id="3_ju254"]
+[ext_resource type="Script" uid="uid://dvk52vcdkq7aq" path="res://Codes and Screens/GameText.gd" id="3_ju254"]
 
 [node name="Main game Graphics" type="CanvasLayer"]
 
